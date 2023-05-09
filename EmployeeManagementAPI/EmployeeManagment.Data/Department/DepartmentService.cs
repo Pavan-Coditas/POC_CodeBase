@@ -28,7 +28,7 @@ namespace EmployeeManagment.Services
             }
             var expirationTime = DateTimeOffset.Now.AddMinutes(5.0) ;
 
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Read))
             {
                 cacheData = unitOfWork.GetRepository<Department>().GetAll();
             }

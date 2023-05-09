@@ -11,6 +11,7 @@ namespace EmployeeManagement.Entities.Models.EntityModels
 
         public int Id { get; set; }
         public string Name { get; set; } = null!;
+        [JsonIgnore]
         public virtual ICollection<Employee> Employees { get; set; }
 
     }

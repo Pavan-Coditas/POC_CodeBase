@@ -6,7 +6,7 @@ namespace EmployeeManagment.Services.Account
     public interface IAccountService
     {
         User GetUser(LoginModel model);
-        void LoginAudit(LoginAudit audit);
+        Task LoginAudit(LoginAudit audit);
         User CreateUser(User user);
     }
 }

@@ -45,7 +45,7 @@ namespace EmployeeManagement.Services
                 }
                 var expirationTime = DateTimeOffset.Now.AddMinutes(5.0);
 
-                using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+                using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Read))
                 {
                     cacheData = unitOfWork.GetRepository<Employee>().GetAll();
                 }
@@ -72,23 +72,23 @@ namespace EmployeeManagement.Services
                 return filteredData;
             }
             _logger.Information($"Fetching employees with id: {id}", id);
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Read))
             {
                 filteredData = unitOfWork.GetRepository<Employee>().Get(id);
             }
             return filteredData;
         }
 
-        public Employee Create(EmployeeDTO entity)
+        public async Task<Employee> Create(EmployeeDTO entity)
         {
             _logger.Information("Attempt for Creating New Employee..");
 
             var employeeEnitity = _mapper.Map<Employee>(entity);
             Employee result;
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
             {
                 result = unitOfWork.GetRepository<Employee>().Create(employeeEnitity);
-                unitOfWork.Commit();
+                await unitOfWork.Commit();
             }
             _logger.Information("Sucessfully Created Employee.." + "'" + employeeEnitity.Name + "'");
             _cacheService.RemoveData(_redisKey);
@@ -96,15 +96,15 @@ namespace EmployeeManagement.Services
             return result!;
         }
 
-        public Employee Update(EmployeeDTO entity)
+        public async Task<Employee> Update(EmployeeDTO entity)
         {
             _logger.Information($"Attempt for Updating Employee with ID: {0}", entity.Id);
             var employeeEnitity = _mapper.Map<Employee>(entity);
             Employee result;
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
             {
                 result = unitOfWork.GetRepository<Employee>().Update(employeeEnitity);
-                unitOfWork.Commit();
+                await unitOfWork.Commit();
             }
             _logger.Information("Sucessfully Updated Employee..");
             _cacheService.RemoveData(_redisKey);
@@ -112,27 +112,27 @@ namespace EmployeeManagement.Services
             return result!;
         }
 
-        public Employee Delete(int id)
+        public async Task<Employee> Delete(int id)
         {
             _logger.Information($"Attempt for Deleting Employee with ID: {id}", id);
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
             {
                 var result = unitOfWork.GetRepository<Employee>().Delete(id);
-                unitOfWork.Commit();
+                await unitOfWork.Commit();
                 _logger.Information("Employee deleted Sucessfully.. ");
                 _cacheService.RemoveData(_redisKey);
                 return result!;
             }
         }
 
-        public Employee Patch(JsonPatchDocument entity, int id)
+        public async Task<Employee> Patch(JsonPatchDocument entity, int id)
         {
             _logger.Information(" Attempt for Updating Employee with ID: {id}", id);
             Employee response;
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
             {
                 response = unitOfWork.GetRepository<Employee>().Patch(id, entity);
-                unitOfWork.Commit();
+                await unitOfWork.Commit();
             }
             _logger.Information("Sucessfully Updated EMployee..");
             _cacheService.RemoveData(_redisKey);

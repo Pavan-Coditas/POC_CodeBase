@@ -11,7 +11,7 @@ using EmployeeManagement.Api.Middleware;
 using EmployeeManagement.Domain;
 using Serilog.Sinks.Elasticsearch;
 using Serilog.Formatting.Elasticsearch;
-using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,10 +19,6 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
-
-
-//builder.Services.AddDbContext<EmployeeManagementContext>(options =>
-//    options.UseSqlServer(configuration.GetConnectionString("SecureConnection")!), ServiceLifetime.Scoped);
 
 Log.Logger = new LoggerConfiguration()
     .Enrich.WithProcessId()

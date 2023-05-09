@@ -11,12 +11,12 @@ namespace EmployeeManagment.Services
             _context = context;
             _unitOfWork = new UnitOfWork(_context);
         }
-        public IUnitOfWork GetUnitOfWork()
+        public IUnitOfWork GetUnitOfWork(DbOperation dbOperation)
         {
-            //if (dbOperation==DbOperation.Write)
-            //{
-            //    _unitOfWork.BeginTransaction();
-            //}
+            if (dbOperation==DbOperation.Write)
+            {
+                _unitOfWork.BeginTransaction();
+            }
             return _unitOfWork;
         }
     }
