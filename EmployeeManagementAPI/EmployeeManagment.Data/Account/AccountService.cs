@@ -1,7 +1,5 @@
-﻿using Elasticsearch.Net;
-using EmployeeApiConsumer.Entities.Models.EntityModels;
+﻿using EmployeeApiConsumer.Entities.Models.EntityModels;
 using EmployeeManagement.Context;
-using EmployeeManagement.Domain;
 using EmployeeManagement.Entities.Models.EntityModels;
 using EmployeeManagment.Services.Account;
 using Serilog;
@@ -17,8 +15,6 @@ namespace EmployeeManagment.Services.Services
             _unitOfWorkFactory = unitOfWorkFactory;
         }
 
-
-
         public User GetUser(LoginModel entity)
         {
             if (UserContext.UserName == null)
@@ -27,7 +23,7 @@ namespace EmployeeManagment.Services.Services
             }
             _logger.Information($"Attempt for Getting user with name {entity.UserName}..");
 
-            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Read))
+            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork())
             {
                 var res = unitofwork.GetRepository<User>().GetAll();
                 var user = (from users in res
@@ -41,14 +37,14 @@ namespace EmployeeManagment.Services.Services
             }
         }
 
-        public async Task LoginAudit(LoginAudit audit)
+        public void LoginAudit(LoginAudit audit)
         {
             
             _logger.Information($"Loggin the login audits into database: {audit}");
-            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
+            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork())
             {
                 unitofwork.GetRepository<LoginAudit>().Create(audit);
-                await unitofwork.Commit();
+                unitofwork.Commit();
                 _logger.Information($"Logged the logs into the database");
             }
         }
@@ -63,7 +59,8 @@ namespace EmployeeManagment.Services.Services
             user.ModifiedOn=DateTime.UtcNow;
             user.CreatedBy = user.UserName;
             user.ModifiedBy = user.UserName;
-            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Write))
+
+            using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork())
             {
                 var res=unitofwork.GetRepository<User>().Create(user);
                 unitofwork.Commit();

@@ -25,9 +25,8 @@ namespace EmployeeManagement.Api.Helper
             services.AddScoped<IEmployeeService<Employee, EmployeeDTO>, EmployessService>();
             services.AddScoped<IDepartmentService<Department>, DepartmentService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<DbContext>();
             services.AddScoped<UnitOfWorkFactory>();
-            services.AddScoped<EmployeeManagementContext>();
+            services.AddScoped<DbContext>();
             services.AddScoped<ISmsSender, SmsSender>();
             services.AddScoped<HashingHelper>();
             services.AddScoped<JwtTokenGenrator>();
@@ -35,8 +34,7 @@ namespace EmployeeManagement.Api.Helper
             services.AddHttpContextAccessor();
             services.AddScoped<IValidator<Employeepayload>, EmployeeValidator>();
             services.AddScoped<EmployeeValidator>();
-            //services.AddControllers().AddNewtonsoftJson();
-            services.AddControllers().AddNewtonsoftJson(options =>options.SerializerSettings.ReferenceLoopHandling =Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddControllers().AddNewtonsoftJson();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddMvc();

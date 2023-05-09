@@ -18,9 +18,7 @@ namespace EmployeeManagement.Entities.Models.EntityModels
         public string? CreatedBy { get; set; }
         public int? GenderId { get; set; }
 
-        [JsonIgnore]
         public virtual Department Dept { get; set; } = null!;
-        [JsonIgnore]
         public virtual Gender? Gender { get; set; }
     }
 }

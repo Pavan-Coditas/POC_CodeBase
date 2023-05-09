@@ -11,9 +11,9 @@ namespace EmployeeManagment.Services
     {
         IEnumerable<Entity> GetAll();
         Entity Get(int id);
-        Task<Entity> Create(TEntity entity);
-        Task<Entity> Update(TEntity entity);
-        Task<Entity> Delete(int id);
-        Task<Entity> Patch(JsonPatchDocument entity, int id);
+        Entity Create(TEntity entity);
+        Entity Update(TEntity entity);
+        Entity Delete(int id);
+        Entity Patch(JsonPatchDocument entity, int id);
     }
 }
