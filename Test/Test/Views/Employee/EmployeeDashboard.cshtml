@@ -1,0 +1,198 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewBag.Title = "Employee Table";
+    var depts = ViewBag.departments;
+    var jwtToken = HttpContextAccessor.HttpContext!.Session.GetString("token");
+
+}
+
+<head>
+    <script type="text/javascript">
+
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+    <style>
+        table {
+            margin-top: 2rem;
+            font-family: arial, sans-serif;
+            border-collapse: separate;
+            width: 100%;
+            border: solid 2px;
+            border-radius: 8px;
+        }
+
+        td, th {
+            border: 0.1em double #dddddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        td:first-child, th:first-child {
+            padding-left: 16px;
+        }
+
+        td:last-child, th:last-child {
+            padding-right: 16px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        #empid {
+            border-radius: 6px;
+        }
+
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<div id="EmpTable">
+
+    <div id="EmployeeGrid"></div>
+
+
+    <input type="button" style=" margin-top: 2%;border-radius:6px;margin-left: 29rem;" class="alert-success" onclick="getCreateForm()" value="Create New Employee">
+    <div id="form"></div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        loadGrid()
+
+    })
+
+    function loadGrid() {
+
+        $.ajax({
+            url: "/Employee/GetAllEmployees",
+            dataType: 'html',
+            success: function (data) {
+                $("#EmployeeGrid").html(data)
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+
+
+    function getCreateForm() {
+        $.ajax({
+            url: "/Employee/Create",
+            dataType: 'html',
+            success: function (data) {               
+                $("#form").html(data)
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+
+
+    function EditEmployee(empId) {
+
+
+        $("#form").load("/Employee/Edit?employeeId=" + empId);
+    }
+
+
+    function confirmation(empId, empName) {
+        $("#form").html("");
+        var modal = document.getElementById("deleteModal");
+        var span = document.getElementsByClassName("close")[0];
+        var confirmBtn = document.getElementById("confirmDelete");
+        var cancelBtn = document.getElementById("cancelDelete");
+        var empNameSpan = document.getElementById("empName");
+
+        empNameSpan.innerText = empName;
+        modal.style.display = "block";
+
+        confirmBtn.onclick = function () {
+            deleteEmployee(empId);
+            modal.style.display = "none";
+        };
+
+        cancelBtn.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+    }
+
+    function deleteEmployee(empId) {
+        $("#form").html("");
+        $.ajax({
+
+            url: "/Employee/Delete?id=" + empId,
+            type: "get",
+            datatype: "json",
+            success: function (data) {
+
+                loadGrid();
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus);
+                console.log(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+</script>
+
+
+
+

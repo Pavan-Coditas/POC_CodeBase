@@ -1,0 +1,15 @@
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Domain.deps.json
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Domain.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Domain.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagment.Context.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagment.Context.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.csproj.AssemblyReference.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.AssemblyInfo.cs
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.csproj.CopyComplete
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\refint\EmployeeManagement.Domain.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Domain.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\ref\EmployeeManagement.Domain.dll

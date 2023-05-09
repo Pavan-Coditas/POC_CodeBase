@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;  // clean up F12 tool network tab
+}
+
+
+
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+
+
+<h2 class="text-danger">Status Code: @ViewBag.ErrorStatusCode</h2>
+<h2 class="text-danger"> @ViewBag.ErrorMessage</h2>
+
+@if (ViewBag.ShowRequestId)
+{
+    <h3>Request ID</h3>
+    <p>
+        <code>@ViewBag.RequestId</code>
+    </p>
+}

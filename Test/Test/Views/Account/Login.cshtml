@@ -1,0 +1,177 @@
+﻿@{
+    Layout = "";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <style>
+        .login-form {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin-left: 75px;
+            margin-right: -73px;
+            padding: 20px;
+        }
+
+            .login-form h2 {
+                color: #333333;
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .login-form .form-field {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+
+            .login-form label {
+                color: #333333;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .login-form input {
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .login-form button {
+                background-color: #0099cc;
+                border: none;
+                border-radius: 17px;
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 18px;
+                padding: -11px -2px;
+                transition: background-color 0.2s ease-in-out;
+            }
+
+                .login-form button:hover {
+                    background-color: #0077cc;
+                }
+
+
+
+
+        /* The message box is shown when the user clicks on the password field */
+        #message {
+            display: none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+            #message p {
+                padding: 2px 35px;
+                font-size: 15px;
+            }
+
+        /* Add a green text color and a checkmark when the requirements are right */
+        .valid {
+            color: green;
+        }
+
+            .valid:before {
+                position: relative;
+                left: -35px;
+                content: "✔";
+            }
+
+        /* Add a red text color and an "x" when the requirements are wrong */
+        .invalid {
+            color: red;
+        }
+
+            .invalid:before {
+                position: relative;
+                left: -35px;
+                content: "✖";
+            }
+
+    </style>
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8" style="display:flex">
+                            <div class="mb-4">
+                            </div>
+
+                            <form class="login-form" method="post" action="@Url.Action("UserLogin", "Account")">
+                                <h2>Login</h2>
+                                <div class="form-field">
+                                    <label for="username">Email / Username</label>
+                                    <input type="text" id="username" name="UserName" placeholder="Email / Username" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password" required>
+                                </div>
+
+                                <div id="error-message"></div>
+                                @*<button class="btn" type="submit" >LogIn</button>*@
+                                <div class="form-field">
+                                    <button class="btn" type="submit" style="" onclick="validate()">LogIn</button>
+                                </div>
+
+                                <a href="@Url.Action("RegisterUser", "Account" )"><span class="fa fa-briefcase mr-5"></span> Don't have account? SignUp</a>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+</body>
+</html>

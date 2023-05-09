@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Account\RegisterUser.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css1\.DS_Store" />
+    <None Include="wwwroot\css1\bootstrap.min.css" />
+    <None Include="wwwroot\css1\bootstrap\.DS_Store" />
+    <None Include="wwwroot\css1\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\css1\bootstrap\mixins\_border-radius.css" />
+    <None Include="wwwroot\css1\bootstrap\mixins\_screen-reader.css" />
+    <None Include="wwwroot\css1\bootstrap\mixins\_visibility.css" />
+    <None Include="wwwroot\css1\bootstrap\utilities\_stretched-link.css" />
+    <None Include="wwwroot\css1\bootstrap\_media.css" />
+    <None Include="wwwroot\css1\style.css" />
+    <None Include="wwwroot\fonts1\.DS_Store" />
+    <None Include="wwwroot\images\hello.gif" />
+    <None Include="wwwroot\js1\.DS_Store" />
+    <None Include="wwwroot\js1\bootstrap.min.js" />
+    <None Include="wwwroot\js1\jquery.min.js" />
+    <None Include="wwwroot\js1\main.js" />
+    <None Include="wwwroot\js1\popper.js" />
+    <None Include="wwwroot\css\.DS_Store" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\bootstrap\bootstrap-grid.css" />
+    <None Include="wwwroot\css\bootstrap\bootstrap-reboot.css" />
+    <None Include="wwwroot\css\owl.carousel.min.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\images\.DS_Store" />
+    <None Include="wwwroot\images\bg_1.jpg" />
+    <None Include="wwwroot\images\undraw_remotely_2j6y.svg" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\js\owl.carousel.min.js" />
+    <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.HeaderPropagation" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="7.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.0-preview.1.23110.8" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.4.2" />
+  </ItemGroup>
+
+</Project>

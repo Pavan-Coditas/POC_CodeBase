@@ -1,0 +1,116 @@
+﻿@model Department;
+@{
+    var depts = ViewBag.departments;
+
+}
+
+<style>
+    .form {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 14px;
+        margin-left: 28rem;
+        border-radius: 12px;
+        background-color: lavender;
+    }
+</style>
+<form class="form">
+    <label for="EmpName">Employee name:</label><br>
+    <input type="text" id="EmpName" name="EmpName" required><br>
+
+    <label for="PhoneNo">Phone Number:</label><br>
+    <input type="text" id="PhoneNo" name="PhoneNo" required><br>
+
+    <label for="Salary">Salary:</label><br>
+    <input type="number" id="Salary" name="Salary" required><br>
+
+    <label for="Designation">Designation:</label><br>
+    <input type="text" id="Designation" name="Designation" required><br>
+
+    <label for="DateOfBirth">Date Of Birth:</label><br>
+    <input type="date" id="DateOfBirth" name="DateOfBirth" required /><br>
+
+    <label for="Email">Email:</label><br>
+    <input type="email" id="Email" name="Email" required><br>
+
+    <label for="DeptId">Department:</label> <br>
+    <select name="DeptId" id="deptId">
+        <option value="">Select</option>
+        @foreach (var dpt in depts)
+        {
+            Department department = dpt;
+           
+            <option value="@department.Id">@department.Name</option>
+        }
+    </select><br>
+
+
+    <input type="button" style=" margin-top: 4px;border-radius:6px" value="Create" class="alert-success" onclick="btnclick()" />
+    <input type="button" style="border-radius:6px" value="Cancel" class="alert-danger" onclick="cancel()" />
+</form>
+
+<script>
+
+    function btnclick() {
+        var empName = $("#EmpName").val();
+        var phone = $("#PhoneNo").val();
+        var salary = $("#Salary").val();
+        var designation = $("#Designation").val();
+        var dateOfBirth = $("#DateOfBirth").val();
+        var email = $("#Email").val();
+        var deptId = $("#deptId").val();
+        var obj = {
+            Name: empName,
+            PhoneNumber: phone,
+            Salary: salary,
+            Designation: designation,
+            DateOfBirth: dateOfBirth,
+            EmailId: email,
+            DepartmentId: deptId,
+            GenderId: 10,
+            Dept: {
+                Id: deptId,
+                Name: "Sales"
+            }
+        }
+        createEmployee(obj);
+    }
+
+    function createEmployee(obj) {
+
+        $.ajax({
+            method: "POST",
+            url: "/Employee/CreateEmployee",
+            data: obj,
+            dataType: "json",
+            success: function () {
+                //alert(data);
+                loadgrid()
+
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+    function cancel() {
+        loadgrid()
+        $("#form").html("");
+    }
+
+    function loadgrid(){
+        $.ajax({
+            url: "/Employee/GetAllEmployees",
+            dataType: 'html',
+            success: function (data) {
+                $("#EmployeeGrid").html(data)
+                $("#form").html("");
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+
+</script>

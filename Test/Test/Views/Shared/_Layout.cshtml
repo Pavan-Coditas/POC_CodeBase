@@ -1,0 +1,94 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var jwtToken = HttpContextAccessor.HttpContext!.Session.GetString("token");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Training</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css1/style.css" rel="stylesheet" />
+
+    <script src="js1/jquery.min.js"></script>
+    <script src="js1/popper.js"></script>
+    <script src="js1/bootstrap.min.js"></script>
+    <script src="js1/main.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</head>
+
+<body>
+    @if (jwtToken != null)
+    {
+        <div style="min-height:100vh;" class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+                <div class="custom-menu">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h1><a href="@Url.Action("Navigation", "Comman")" class="logo">Training <span>CAS Agency</span></a></h1>
+                    <ul class="list-unstyled components mb-5">
+
+                        <li>
+                            <a href="@Url.Action("EmployeeDashboard", "Employee" )"><span class="fa fa-user mr-3"></span> Manage Employee</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Selectors", "Comman" )"><span class="fa fa-briefcase mr-3"></span> JQuery Selector</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Example", "Comman" )"><span class="fa fa-cogs mr-3"></span> Settings</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("UserLogout", "Account" )"><span class="fa fa-paper-plane mr-3"></span> LogOut</a>
+                        </li>
+                    </ul>
+
+
+
+                    <div class="footer">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            <br> All rights reserved <br> This template is made with <i class="icon-heart" aria-hidden="true"></i> by Prashant's Team.
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+
+                </div>
+            </nav>
+            <div style="width:100%;">
+                    @RenderBody()               
+            </div>
+        </div>
+    }
+
+
+</body>
+
+</html>
+
+
+<style>
+    .center {
+        margin-top: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

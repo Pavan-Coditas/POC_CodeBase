@@ -1,0 +1,160 @@
+﻿<!-- for element -->
+<div id="div-1">
+	<div class="rightChild syntax">
+		<span STYLE="font-weight:bold">Syntax : $("element") </span><br>
+		<span>
+			Description: The element selector to select HTML elements based on their tag name. The element
+			selector is represented by the tag name.
+		</span>
+
+	</div>
+	<hr />
+	
+	<div class="rightChild code">
+		<span STYLE="font-weight:bold">Get it visualized by selecting an element... </span><br>
+		<!-- <p> <span> $(' <input type="text" id="find" name="find" placeholder="element name.."> ')</span> </p> -->
+
+		<label for="element">Choose an element : </label>
+		<span>
+			$('
+			<select name="element" id="find">
+				<option value="">Select</option>
+				<option value="h1"> H1</option>
+				<option value="h2"> H2</option>
+				<option value="p">p </option>
+				<option value="th">th</option>
+				<option value="span">Span</option>
+			</select> ')
+		</span>
+
+
+		<input style="margin-left: 1rem;" type="button" id="class-Button" value="Try out !!" />
+		<input style="margin-left: 1rem;" type="button" id="class-reset" value="Reset.." />
+		<div id="display"></div>
+		<div id="myDiv" style="display: none;">hii</div>
+		<div id="code"></div>
+		<div id="code2"></div>
+	</div><hr />
+	<div class="rightChild html-block">
+
+		<h1 class="Heading" style="text-align:center">Hello! I'm < h1> Headling element</h1>
+		<h2 class="headingh2" style="text-align:center">This is heading with < h2> element</h2>
+		<div class="intro">
+			<p>I'm < p> tag !! The < p> tag defines a paragraph.
+					Browsers automatically add a single blank line before and after each < p> element.</p>	
+
+			
+		</div>	
+		<div style="display:inline-flex; text-align:center" id="boxes">
+
+			<div class="divconatiner" id="leftbox">
+				<h2>Div A</h2>
+				<span class="spanText">
+					The < div> tag defines a division or a section in an HTML document.Browsers always place a line break before and after element.
+				</span>
+			</div>
+
+			<div id="middlebox">
+				<h2>Div B</h2>
+				<span class="spanText">
+					The < div> tag is used as a container for HTML elements - which is then styled with
+						CSS or manipulated with JavaScript.
+				</span>
+			</div>
+
+			<div id="rightbox">
+				<h2>Div C</h2>
+				<span class="spanText">
+					The < div> tag is easily styled by using the class or id attribute. Any sort of
+						content can be put inside the < div> tag!
+				</span>
+			</div>
+		</div><br />
+
+		<hr />
+		<br />
+		<table>
+			<tr>
+				<th>Company</th>
+				<th>Contact</th>
+				<th>Country</th>
+			</tr>
+			<tr>
+				<td>Coditas</td>
+				<td>Mitul Bid</td>
+				<td>India</td>
+			</tr>
+			<tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>Germany</td>
+			</tr>
+			<tr>
+				<td>Centro comercial Moctezuma</td>
+				<td>Francisco Chang</td>
+				<td>Mexico</td>
+			</tr>
+			<tr>
+				<td>Ernst Handel</td>
+				<td>Roland Mendel</td>
+				<td>Austria</td>
+			</tr>
+
+		</table>
+		<br />
+		<br />
+
+	</div>
+
+
+</div>
+
+
+<script>
+
+
+
+	$(function () {
+		$('#class-Button').click(function () {
+
+			var elementName = $('#find').val();
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': '',
+				'color': 'black'
+			});
+
+			$('.rightChild.html-block').find(elementName).css({
+				'background-color': '#3445b4'
+			});
+
+			$('.rightChild.html-block').find(elementName).css({
+				'color': 'white'
+			});
+
+
+			var container = $('#flex-child-right');
+			var scrollTo = $(elementName)[0];
+
+			$(container).animate({
+				scrollTop: $(elementName).offset().top
+			}, 1000);
+		});
+
+		// reset
+		$('#class-reset').click(function () {
+			$('#find').val = '';
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': ''
+			});
+
+			$('.rightChild.html-block').find('*').css({
+				'color': 'black'
+			});
+		});
+
+
+	});
+
+</script>

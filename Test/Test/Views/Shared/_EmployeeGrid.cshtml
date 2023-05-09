@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Employee>
+@using Microsoft.AspNetCore.Mvc;
+@using EmployeeApiConsumer.Models;
+@{
+    var depts = ViewBag.departments;
+}
+<h1 style="text-align:center">Admin Dashboard</h1>
+<table style="background-color: aliceblue;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone No</th>
+            <th>Salary</th>
+            <th>Designation</th>
+            <th>Date of birth</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Salary</td>
+                <td>@item.Designation</td>
+                @{
+                    string dateStr = item.DateOfBirth.ToString()!;
+                    DateTime date = DateTime.Parse(dateStr);
+                    string formattedDate = date.ToString("M/d/yyyy");
+                }
+                <td>@*@item.DateOfBirth*@ @formattedDate</td>
+                <td>@item.Email</td>
+                @foreach (var dpt in depts)
+                {
+                    if (item.DeptId == dpt.Id)
+                    {
+                        <td>@dpt.Name</td>
+                    }
+                }
+                <td>
+
+                    <input class="alert-info" type="submit" value="Edit" id="empid" onclick="EditEmployee(@item.Id)" />
+                    <input class="alert-danger" type="submit" value="Delete" id="empid" onclick="confirmation(@item.Id,'@item.Name')" />
+
+                    <div id="deleteModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>
+                                Are you sure you want to delete <strong>
+                                    <span id="empName"></span>?
+                                </strong>
+                            </p>
+                            <button id="confirmDelete">Yes</button>
+                            <button id="cancelDelete">No</button>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

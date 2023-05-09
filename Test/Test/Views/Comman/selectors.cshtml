@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <title>JQuery Selectors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h3 style="text-align:center;background-color: #3445b4;color:white;margin-left:2rem;margin-top:0.5rem;margin-right:0.5rem"> Jquery Selectors </h3>
+
+    <div class="flex-container">
+
+            <div class="flex-child left scrollbar scrollbar-primary">
+                <div class="input-box ">
+
+                    <input type="radio" id="element" name="selector" value="1">
+                    <label for="element">element</label><br>
+                    <input type="radio" id="class" name="selector" value="2">
+                    <label for="class">.class</label><br>
+                    <input type="radio" id="Id" name="selector" value="3">
+                    <label for="Id">#id</label><br>
+
+                    <input type="radio" id=":first" name="selector" value="4">
+                    <label for="age3">:first </label><br>
+                    <input type="radio" id="class" name="selector" value="5">
+                    <label for="age2">:last </label><br>
+                    <input type="radio" id="Id" name="selector" value="6">
+                    <label for="age1">:first-child </label><br>
+
+                    <input type="radio" id="element" name="selector" value="7">
+                    <label for="age3">:last-child </label><br>
+                    <input type="radio" id="class" name="selector" value="8">
+                    <label for="age2">:nth-child(n) </label><br>
+                    <input type="radio" id="Id" name="selector" value="9">
+                    <label for="age1">:nth-last-child(n) </label><br>
+
+                    <input type="radio" id="element" name="selector" value="10">
+                    <label for="element">:even</label><br>
+                    <input type="radio" id="class" name="selector" value="11">
+                    <label for="class">:odd</label><br>
+                    <input type="radio" id="Id" name="selector" value="12">
+                    <label for="Id">:first-of-type</label><br>
+
+                    <input type="radio" id="element" name="selector" value="13">
+                    <label for="age3">:last-of-type </label><br>
+                    <input type="radio" id="class" name="selector" value="14">
+                    <label for="age2">:nth-of-type(n) </label><br>
+                    <input type="radio" id="Id" name="selector" value="15">
+                    <label for="age1">:nth-last-of-type(n)</label><br>
+
+                    <input type="radio" id="element" name="selector" value="16">
+                    <label for="age3">:only-of-type </label><br>
+                    <input type="radio" id="class" name="selector" value="17">
+                    <label for="age2">:only-child </label><br>
+                    <input type="radio" id="Id" name="selector" value="18">
+                    <label for="age1">el1,el2,el3 </label><br>
+
+                    <input type="radio" id="element" name="selector" value="19">
+                    <label for="element">parent > child</label><br>
+                    <input type="radio" id="class" name="selector" value="20">
+                    <label for="class">element + next</label><br>
+                    <input type="radio" id="Id" name="selector" value="21">
+                    <label for="Id">element ~ siblings</label><br>
+
+                    <input type="radio" id="class" name="selector" value="22">
+                    <label for="class">:header</label><br>
+                    <input type="radio" id="Id" name="selector" value="23">
+                    <label for="Id">:contains(text)</label><br>
+
+                    <input type="radio" id=":first" name="selector" value="24">
+                    <label for="age3">:has(selector)</label><br>
+                    <input type="radio" id="class" name="selector" value="25">
+                    <label for="age2">:empty </label><br>
+                    <input type="radio" id="Id" name="selector" value="26">
+                    <label for="age1">:parent</label><br>
+
+                    <input type="radio" id="element" name="selector" value="27">
+                    <label for="age3">:visible</label><br>
+                    <input type="radio" id="class" name="selector" value="28">
+                    <label for="age2">:input</label><br>
+                    <input type="radio" id="Id" name="selector" value="29">
+                    <label for="age1">:text</label><br>
+
+                    <input type="radio" id="element" name="selector" value="30">
+                    <label for="element">:radio</label><br>
+                    <input type="radio" id="class" name="selector" value="31">
+                    <label for="class">:checkbox</label><br>
+                    <input type="radio" id="Id" name="selector" value="32">
+                    <label for="Id">:submit</label><br>
+
+
+                </div>
+
+            </div>
+
+            <div style="" class="flex-child right scrollbar scrollbar-primary" id="flex-child-right"></div>
+        </div>
+
+        
+
+        
+
+ 
+
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        color:black;
+    }
+
+    .flex-container {
+        display: flex;
+    }
+
+    .flex-child {
+        flex: 2;
+      
+       
+    }
+
+        .flex-child:first-child {
+            flex: .5;
+        }
+
+    .right {
+        display: block;
+        padding:1rem;
+        margin-right: 0.5rem !important
+    }
+
+    
+
+
+    .left h1 {
+        text-align: center;
+    }
+
+    .input-box {
+        margin: 1rem;
+    }
+
+   
+    #leftbox {
+     margin: 1rem;
+    }
+
+    #middlebox {
+        margin: 1rem;
+    }
+
+    #rightbox {
+        margin: 1rem;
+    }
+
+
+    .heading {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .content {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .important {
+        color: red;
+        font-weight: bold;
+    }
+
+    .featured {
+        border: 1px solid blue;
+        padding: 10px;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        border: solid black;
+    }
+
+    td,
+    th {
+        border: 1px solid black;
+    }
+
+    tr:hover {
+        background-color: lightcyan;
+    }
+
+
+    .scrollbar {
+        margin-left: 30px;
+        float: left;
+        height: 100vh;
+        width: 10px;
+        background: #fff;
+        overflow-y: scroll;
+        margin-bottom: 25px;
+    }
+
+    .force-overflow {
+        min-height: 450px;
+    }
+
+    .scrollbar-primary::-webkit-scrollbar {
+        width:2px;
+        background-color: #F5F5F5;
+    }
+
+    .scrollbar-primary::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #3445b4;
+    }
+
+    .scrollbar-primary {
+        scrollbar-color: #3445b4 #F5F5F5;
+    }
+
+    
+
+
+
+</style>
+
+<script>
+    $(function () {
+
+
+
+        $('input[name="selector"]').click(function () {
+            var selector = $(this).val();
+            var url = "";
+
+            if (selector == "1") {
+                selectorView = "Element";
+
+            } else if (selector == "2") {
+                selectorView = "Class";
+            }
+            else if (selector == "3") {
+                selectorView = "Id";
+            }
+            else if (selector == "4") {
+                selectorView = "First";
+            }
+            else if (selector == "5") {
+                selectorView = "Last";
+            }
+            else if (selector == "6") {
+                selectorView = "FirstChild";
+            }
+            else if (selector == "7") {
+                selectorView = "LastChild";
+            }
+            else if (selector == "8") {
+                selectorView = "NthChild";
+            }
+            else if (selector == "9") {
+                selectorView = "NthLastChild";
+            }
+            else if (selector == "10") {
+                selectorView = "Even";
+            }
+            else if (selector == "11") {
+                selectorView = "Odd";
+            }
+            else if (selector == "12") {
+                selectorView = "FirstOfType";
+            }
+            else if (selector == "13") {
+                selectorView = "LastOfType";
+            }
+            else if (selector == "14") {
+                selectorView = "NthOfType";
+            }
+            else if (selector == "15") {
+                selectorView = "NthLastOfType";
+            }
+            else if (selector == "16") {
+                selectorView = "OnlyOfType";
+            }
+            else if (selector == "17") {
+                selectorView = "OnlyChild";
+            }
+            else if (selector == "18") {
+                selectorView = "MixElements";
+            }
+            else if (selector == "19") {
+                selectorView = "ParentChild";
+            }
+            else if (selector == "20") {
+                selectorView = "ElementNext";
+            }
+            else if (selector == "21") {
+                selectorView = "ElementSiblings";
+            }
+            else if (selector == "22") {
+                selectorView = "Header";
+            }
+            else if (selector == "23") {
+                selectorView = "Contains";
+            }
+            else if (selector == "24") {
+                selectorView = "Has";
+            }
+            else if (selector == "25") {
+                selectorView = "Empty";
+            }
+            else if (selector == "26") {
+                selectorView = "Parent";
+            }
+            else if (selector == "27") {
+                selectorView = "Visible";
+            }
+            else if (selector == "28") {
+                selectorView = "Input";
+            }
+            else if (selector == "29") {
+                selectorView = "Text";
+            }
+            else if (selector == "30") {
+                selectorView = "Radio";
+            }
+            else if (selector == "31") {
+                selectorView = "Checkbox";
+            }
+            else if (selector == "32") {
+                selectorView = "Submit";
+            }
+
+            $.ajax({
+
+                url: "/Comman/Getpartial?selectView=" + selectorView,
+                type: "GET",
+                success: function (data) {
+
+                    $('#flex-child-right').html(data);
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert(textStatus);
+                    console.log(textStatus + ": " + errorThrown);
+                }
+            });
+        });
+
+    });
+
+
+</script>

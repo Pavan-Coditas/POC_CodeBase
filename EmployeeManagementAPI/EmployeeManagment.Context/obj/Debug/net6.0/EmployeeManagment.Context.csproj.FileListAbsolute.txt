@@ -1,0 +1,12 @@
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\bin\Debug\net6.0\EmployeeManagment.Context.deps.json
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\bin\Debug\net6.0\EmployeeManagment.Context.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\bin\Debug\net6.0\EmployeeManagment.Context.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.csproj.AssemblyReference.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.AssemblyInfoInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.AssemblyInfo.cs
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.csproj.CoreCompileInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\refint\EmployeeManagment.Context.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\EmployeeManagment.Context.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagment.Context\obj\Debug\net6.0\ref\EmployeeManagment.Context.dll
