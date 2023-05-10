@@ -7,6 +7,11 @@
 
 }
 
+@model IEnumerable<Employee>
+
+@using EmployeeApiConsumer.Models;
+
+
 <head>
     <script type="text/javascript">
 
@@ -98,7 +103,7 @@
 </head>
 
 <div id="EmpTable">
-   
+
     <div id="EmployeeGrid"></div>
 
     <div id="form"></div>
@@ -129,7 +134,7 @@
         $.ajax({
             url: "/Employee/Create",
             dataType: 'html',
-            success: function (data) {               
+            success: function (data) {
                 $("#form").html(data)
             },
             error: function (xhr, textStatus, errorThrown) {
@@ -139,11 +144,10 @@
     }
 
 
-    function EditEmployee(empId) {
+    //function EditEmployee(empId) {
 
-
-        $("#form").load("/Employee/Edit?employeeId=" + empId);
-    }
+    //    $("#form").load("/Employee/Edit?employeeId=" + empId);
+    //}
 
 
     function confirmation(empId, empName) {
@@ -169,12 +173,8 @@
         span.onclick = function () {
             modal.style.display = "none";
         };
-    }
-
-    function EditEmployee(EmpId){
 
     }
-
 
     function deleteEmployee(empId) {
         $("#form").html("");
@@ -194,6 +194,50 @@
             }
         });
     }
+
+
+    function EditEmployee(empId, empName) {
+
+        $("#form").html("");
+        var modalEdit = document.getElementById("editModal");
+        var spanEdit = document.getElementsByClassName("close")[1];
+        var saveBtn = document.getElementById("saveEdit");
+        var cancelBtnEdit = document.getElementById("cancelEdit");
+        var empNameSpanEdit = document.getElementById("empNameEdit");
+        var editForm = document.getElementById("editForm");
+
+        //document.getElementById("name").value = empName;
+        //document.getElementById("PhoneNo").value = empId;
+        //document.getElementById("Salary").value = empId;
+        //document.getElementById("Designation").value = empId;
+        //document.getElementById("DateOfBirth").value = empId;
+        //document.getElementById("email").value = empId;
+        //document.getElementById("DeptId").value = empId;
+
+
+        empNameSpanEdit.innerText = empName;
+        modalEdit.style.display = "block";
+
+        saveBtn.onclick = function () {
+            editEmployee(empId);
+            modalEdit.style.display = "none";
+        };
+
+        cancelBtnEdit.onclick = function () {
+            modalEdit.style.display = "none";
+        };
+
+        spanEdit.onclick = function () {
+            modalEdit.style.display = "none";
+        };
+
+        editForm.onsubmit = function (event) {
+            event.preventDefault(); // prevent the form from submitting normally
+            editEmployee(empId);
+            modalEdit.style.display = "none";
+        };
+    }
+
 </script>
 
 
