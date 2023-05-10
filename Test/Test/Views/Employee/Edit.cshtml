@@ -102,7 +102,7 @@
             operation.push(PatchedData);
         }
         if ('@Model.DeptId' != $("#DeptId").val()) {
-            var PatchedData = { op: "replace", path: "/DepartmentId", value: $("#DeptId").val() };
+            var PatchedData = { op: "replace", path: "/DeptId", value: $("#DeptId").val() };
             operation.push(PatchedData);
         }
         patchData(operation);

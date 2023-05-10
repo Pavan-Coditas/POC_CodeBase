@@ -82,8 +82,11 @@ namespace EmployeeManagement.Services
         public Employee Create(EmployeeDTO entity)
         {
             _logger.Information("Attempt for Creating New Employee..");
-
             var employeeEnitity = _mapper.Map<Employee>(entity);
+            employeeEnitity.CreatedBy = UserContext.UserName;
+            employeeEnitity.ModifiedBy = UserContext.UserName;
+            employeeEnitity.CreatedOn = DateTime.Now;
+            employeeEnitity.ModifiedOn = DateTime.Now;
             Employee result;
             using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
             {

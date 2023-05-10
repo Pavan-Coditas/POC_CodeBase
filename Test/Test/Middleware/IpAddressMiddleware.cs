@@ -1,4 +1,7 @@
-﻿namespace EmployeeApiConsumer.CustomeMiddlewares
+﻿using System.Net.NetworkInformation;
+using System.Net;
+
+namespace EmployeeApiConsumer.CustomeMiddlewares
 {
     public class IpAddressMiddleware
     {
@@ -11,9 +14,39 @@
         public async Task Invoke(HttpContext context)
         {
           string ipAddress = context.Request.Headers["X-Forwarded-For"];
-            if (string.IsNullOrEmpty(ipAddress))
+            //if (string.IsNullOrEmpty(ipAddress))
+            //{
+            //    ipAddress = context.Connection.RemoteIpAddress!.MapToIPv4().ToString();
+            //}
+            //context.Items["IpAddress"] = ipAddress;
+            //await _requestDelegate(context);
+
+            NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+            foreach (NetworkInterface networkInterface in networkInterfaces)
             {
-                ipAddress = context.Connection.RemoteIpAddress!.MapToIPv4().ToString();
+                // Filter for Ethernet or Wi-Fi interfaces
+                if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet ||
+                    networkInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
+                {
+                    IPInterfaceProperties ipProperties = networkInterface.GetIPProperties();
+                    foreach (UnicastIPAddressInformation ipAddressInfo in ipProperties.UnicastAddresses)
+                    {
+                        // Check for IPv4 address and exclude loopback and link-local addresses
+                        if (ipAddressInfo.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork &&
+                            !IPAddress.IsLoopback(ipAddressInfo.Address) &&
+                            !ipAddressInfo.Address.IsIPv6LinkLocal)
+                        {
+                            ipAddress = ipAddressInfo.Address.ToString();
+                            break;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(ipAddress))
+                {
+                    break;
+                }
             }
             context.Items["IpAddress"] = ipAddress;
             await _requestDelegate(context);
