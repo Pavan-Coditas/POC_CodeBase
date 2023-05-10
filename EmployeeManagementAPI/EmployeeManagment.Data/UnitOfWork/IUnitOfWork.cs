@@ -4,7 +4,7 @@ namespace EmployeeManagment.Services
 {
     public interface IUnitOfWork : IDisposable 
     {
-        Task<bool> Commit();
+        bool Commit();
         void BeginTransaction();
         void RollbackTransaction();
         bool CommitFailed();
