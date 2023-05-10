@@ -98,11 +98,9 @@
 </head>
 
 <div id="EmpTable">
-
+   
     <div id="EmployeeGrid"></div>
 
-
-    <input type="button" style=" margin-top: 2%;border-radius:6px;margin-left: 29rem;" class="alert-success" onclick="getCreateForm()" value="Create New Employee">
     <div id="form"></div>
 </div>
 
@@ -172,6 +170,11 @@
             modal.style.display = "none";
         };
     }
+
+    function EditEmployee(EmpId){
+
+    }
+
 
     function deleteEmployee(empId) {
         $("#form").html("");
