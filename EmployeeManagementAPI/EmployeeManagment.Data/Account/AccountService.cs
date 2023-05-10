@@ -39,14 +39,14 @@ namespace EmployeeManagment.Services.Services
             }
         }
 
-        public async Task LoginAudit(LoginAudit audit)
+        public void LoginAudit(LoginAudit audit)
         {
             
             _logger.Information($"Loggin the login audits into database: {audit}");
             using (var unitofwork = _unitOfWorkFactory.GetUnitOfWork())
             {
                 unitofwork.GetRepository<LoginAudit>().Create(audit);
-                await unitofwork.Commit();
+                unitofwork.Commit();
                 _logger.Information($"Logged the logs into the database");
             }
         }
