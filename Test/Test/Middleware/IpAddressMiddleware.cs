@@ -14,13 +14,6 @@ namespace EmployeeApiConsumer.CustomeMiddlewares
         public async Task Invoke(HttpContext context)
         {
           string ipAddress = context.Request.Headers["X-Forwarded-For"];
-            //if (string.IsNullOrEmpty(ipAddress))
-            //{
-            //    ipAddress = context.Connection.RemoteIpAddress!.MapToIPv4().ToString();
-            //}
-            //context.Items["IpAddress"] = ipAddress;
-            //await _requestDelegate(context);
-
             NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
 
             foreach (NetworkInterface networkInterface in networkInterfaces)

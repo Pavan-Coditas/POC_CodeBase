@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Employee>
 @using Microsoft.AspNetCore.Mvc;
 @using EmployeeApiConsumer.Models;
+
 @{
     var depts = ViewBag.departments;
 }
@@ -127,10 +128,26 @@
             background-color: #3445b4;
         }
 
+    #saveEdit,
+    #cancelEdit {
+        background-color: #3445b4;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 8px;
+        margin-right: 4px;
+    }
+
 </style>
 
 <h3 style="text-align:center;background-color: #3445b4;color:white;margin-left:2rem;margin-top:0.5rem;margin-right:0.5rem"> Employees </h3>
-<input type="button" style="float: right;" class="alert-success" onclick="getCreateForm()" value="Create New Employee">
+<input type="button" style="float: right; margin-right:5%;background-color: #50C878; padding: 5px ; border:none; border-radius:8%; color:white" onclick="getCreateForm()" value="Create New Employee">
 <br />
 
 <div class="table-container" style="margin:1rem;">
@@ -170,7 +187,7 @@
                         }
                     }
                     <td>
-                        <input class="alert-info" type="submit" value="Edit" id="empid" onclick="EditEmployee(@item.Id)" />
+                        <input class="alert-info" type="submit" value="Edit" id="empid" onclick="EditEmployee(@item.Id,'@item.Name')" />
                         <input class="alert-danger" type="submit" value="Delete" id="empid" onclick="confirmation(@item.Id,'@item.Name')" />
 
                         <div id="deleteModal" class="modal">
@@ -186,7 +203,55 @@
                             </div>
                         </div>
 
-                        
+                        <div id="editModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <p>
+                                    Edit <strong>
+                                        <span id="empNameEdit"></span>?
+                                    </strong>
+                                </p>
+                                <form id="editForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required>
+                                    <br>
+
+                                    <label for="PhoneNo">Phone:</label>
+                                    <input type="text" id="PhoneNo" name="PhoneNo" value="@item.PhoneNumber" required><br>
+
+                                    <label for="Salary">Salary:</label>
+                                    <input type="number" id="Salary" name="Salary" value="@item.Salary"><br>
+
+                                    <label for="Designation">Designation:</label>
+                                    <input type="text" id="Designation" name="Designation" value="@item.Designation"><br>
+
+                                    <label for="DateOfBirth">Date Of Birth:</label>
+                                    <input type="date" id="DateOfBirth" value="@item.DateOfBirth" name="DateOfBirth" required /><br>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" value="@item.Email" required>
+                                    <br>
+                                    <label for="DeptId">Department:</label>
+                                    <select name="DeptId" id="DeptId">
+                                        @foreach (var dpt in depts)
+                                        {
+                                            Department dp = dpt;
+                                            if (item.DeptId == dp.Id)
+                                            {
+                                                <option value="@item.DeptId">@dp.Name</option>
+                                            }
+                                        }
+                                        @foreach (var dpt in depts)
+                                        {
+                                            Department dp = dpt;
+                                            <option value="@dp.Id">@dp.Name</option>
+                                        }
+                                    </select><br>
+                                    <button type="submit" id="saveEdit">Update</button>
+                                    <button type="button" id="cancelEdit">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
 
                     </td>
                 </tr>
