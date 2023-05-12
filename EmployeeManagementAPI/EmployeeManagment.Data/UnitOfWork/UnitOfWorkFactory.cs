@@ -1,23 +1,33 @@
 ﻿using EmployeeManagement.Domain;
+using EmployeeManagment.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagment.Services
 {
-    public class UnitOfWorkFactory
+    public class UnitOfWorkFactory : IUnitOfWorkFactory
     {
-        private readonly  EmployeeManagementContext _context;
-        private readonly IUnitOfWork _unitOfWork;
-        public UnitOfWorkFactory(EmployeeManagementContext context)
+        private readonly DbContextOptions<EmployeeManagementContext> _dbContextOptions;
+
+        public UnitOfWorkFactory(DbContextOptions<EmployeeManagementContext> dbContextOptions)
         {
-            _context = context;
-            _unitOfWork = new UnitOfWork(_context);
+            _dbContextOptions = dbContextOptions;
         }
-        public IUnitOfWork GetUnitOfWork(DbOperation dbOperation)
+
+        public IUnitOfWork GetUnitOfWork()
         {
-            if (dbOperation==DbOperation.Write)
+
+            var context = new EmployeeManagementContext(_dbContextOptions);
+            return new UnitOfWork(context);
+        }
+
+        public IUnitOfWork GetUnitOfWork(DbOperation operation)
+        {
+            var unitOfWork = GetUnitOfWork();
+            if (operation == DbOperation.Write)
             {
-                _unitOfWork.BeginTransaction();
+                unitOfWork.BeginTransaction();
             }
-            return _unitOfWork;
+            return unitOfWork;
         }
     }
 }

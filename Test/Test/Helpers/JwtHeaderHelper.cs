@@ -14,7 +14,7 @@ namespace EmployeeApiConsumer.Helpers
 		public void AddJwtToHeaders(HttpRequestHeaders headers)
 		{
 			var token = _httpContextAccessor!.HttpContext!.Session.GetString("token")!;
-            var ipAddress = _httpContextAccessor!.HttpContext!.Connection.RemoteIpAddress!.MapToIPv4().ToString();
+            var ipAddress = _httpContextAccessor!.HttpContext!.Items["IpAddress"]!.ToString();
 
             if (!string.IsNullOrEmpty(token))
 			{

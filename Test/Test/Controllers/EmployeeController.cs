@@ -27,7 +27,6 @@ namespace EmployeeManagement.Controllers
             ViewBag.departments = await _departmentServices.GetDepartmentsAsync();
             var employees = await _employeeServices.GetEmployeesAsync();
             return PartialView("_EmployeeGrid", employees);
-
         }
 
         public async Task<ActionResult> Create()

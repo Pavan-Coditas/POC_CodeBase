@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace EmployeeManagement.Entities.Models.PayloadModel
 {
@@ -15,10 +16,6 @@ namespace EmployeeManagement.Entities.Models.PayloadModel
         public DateTime? DateOfBirth { get; set; }
         public string Email { get; set; } = null!;
         public int DeptId { get; set; }
-        public DateTime? CreatedOn { get; set; }
-        public DateTime? ModifiedOn { get; set; }
-        public string? ModifiedBy { get; set; }
-        public string? CreatedBy { get; set; }
         public int? GenderId { get; set; }
     }
 }

@@ -18,17 +18,14 @@ namespace EmployeeManagment.Services
             return new GenericRepository<TEntity>(_context);
         }
 
-        public async Task<bool> Commit()
+        public bool Commit()
         {
-            return await _context.SaveChangesAsync() > 0;
+            return  _context.SaveChanges() > 0;
         }
 
         public void BeginTransaction()
         {
-            if( _transaction == null )
-            {
-                _transaction = _context.Database.BeginTransaction();
-            }
+            _transaction ??= _context.Database.BeginTransaction();
         }
 
         public void RollbackTransaction()

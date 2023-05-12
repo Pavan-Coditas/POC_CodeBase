@@ -13,10 +13,10 @@ namespace EmployeeManagement.Api.Helper.Validators
             RuleFor(x => x.DateOfBirth).LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
             RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage("Email should be a valid email address.");
             RuleFor(x => x.DeptId).GreaterThan(0).WithMessage("DeptId should be greater than zero.");
-            RuleFor(x => x.CreatedOn).LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
-            RuleFor(x => x.ModifiedOn).LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
-            RuleFor(x => x.CreatedBy).NotEmpty().WithMessage("CreatedBy is required.");
-            RuleFor(x => x.ModifiedBy).NotEmpty().WithMessage("ModifiedBy is required.");
+            //RuleFor(x => x.CreatedOn).LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
+            //RuleFor(x => x.ModifiedOn).LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
+            //RuleFor(x => x.CreatedBy).NotEmpty().WithMessage("CreatedBy is required.");
+            //RuleFor(x => x.ModifiedBy).NotEmpty().WithMessage("ModifiedBy is required.");
         }
     }
 }

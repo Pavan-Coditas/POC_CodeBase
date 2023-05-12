@@ -7,9 +7,9 @@ namespace EmployeeManagment.Services
     public class DepartmentService : IDepartmentService<Department>
     {
         private readonly ICacheService _cacheService;
-        private readonly UnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
         private readonly ILogger _logger;
-        public DepartmentService(ICacheService cacheService,UnitOfWorkFactory unitOfWorkFactory)
+        public DepartmentService(ICacheService cacheService,IUnitOfWorkFactory unitOfWorkFactory)
         {
             _cacheService = cacheService;
             _unitOfWorkFactory = unitOfWorkFactory;
@@ -28,7 +28,7 @@ namespace EmployeeManagment.Services
             }
             var expirationTime = DateTimeOffset.Now.AddMinutes(5.0) ;
 
-            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork(DbOperation.Read))
+            using (var unitOfWork = _unitOfWorkFactory.GetUnitOfWork())
             {
                 cacheData = unitOfWork.GetRepository<Department>().GetAll();
             }
