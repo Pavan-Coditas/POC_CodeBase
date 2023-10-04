@@ -1,0 +1,191 @@
+﻿<!-- for element -->
+<div id="div-1">
+	<div class="rightChild syntax">
+		<span STYLE="font-weight:bold">Syntax : $(":last-child") </span><br><br>
+		<span>
+			Description: The :last-child selector selects all elements that are the last child of their parent.
+		</span>
+	</div>
+
+	<div class="rightChild code">
+		<span STYLE="font-weight:bold">Get it visualized by selecting an element... </span><br><br>
+		<!-- <p> <span> $(' <input type="text" id="find" name="find" placeholder="element name.."> ')</span> </p> -->
+
+		<label for="element">Choose an element : </label>
+		<span>
+			$('
+			<select name="element" id="find">
+				<option value="">Select</option>
+				<option value="p">p:last-child</option>
+				<option value="div">div:last-child</option>
+				<option value="tr">tr:last-child</option>
+				
+			</select> ')
+		</span>
+
+
+		<input style="margin-left: 1rem;" type="button" id="class-Button" value="Try out !!" />
+		<input style="margin-left: 1rem;" type="button" id="class-reset" value="Reset" />
+		<div id="display"></div>
+		<div id="myDiv" style="display: none;">hii</div>
+		<div id="code"></div>
+		<div id="code2"></div>
+	</div>
+	<div class="rightChild html-block">
+
+		<h1 class="Heading" style="text-align:center">Hello! I'm < h1> Headling element</h1>
+		<h2 class="headingh2" style="text-align:center">This is heading with < h2> element</h2>
+		<div class="intro">
+			<p>I'm < p> tag !! The < p> tag defines a paragraph.
+					Browsers automatically add a single blank line before and after each < p> element.</p>
+			
+				  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam delectus iusto voluptas deleniti? Error, at? 
+					  Beatae perferendis optio quisquam? Dolores quidem pariatur quisquam, aliquid ipsum commodi laborum hic recusandae, 
+					  fugiat mollitia sapiente? Quae quaerat praesentium dolorem optio quisquam rem culpa, quidem voluptatem itaque tempora 
+					  doloremque quam quos nisi consequuntur atque.
+				  </p>
+
+			
+		</div>
+		<h3 style="text-align:center">Play with Div's</h3>
+		<div style="display:inline-flex; " id="boxes">
+
+			<div class="divconatiner" id="leftbox">
+				<h2>Div A:</h2>
+				<span class="spanText">
+					The < div> tag defines a division or a section in an HTML document.Browsers always place a line break before and after element.
+				</span>
+			</div>
+
+			<div id="middlebox">
+				<h2>Div B:</h2>
+				<span class="spanText">
+					The < div> tag is used as a container for HTML elements - which is then styled with
+						CSS or manipulated with JavaScript.
+				</span>
+			</div>
+
+			<div id="rightbox">
+				<h2>Div C:</h2>
+				<span class="spanText">
+					The < div> tag is easily styled by using the class or id attribute. Any sort of
+						content can be put inside the < div> tag!
+				</span>
+			</div>
+		</div>
+
+		<table>
+			<tr>
+				<th>Company</th>
+				<th>Contact</th>
+				<th>Country</th>
+			</tr>
+			<tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>Germany</td>
+			</tr>
+			<tr>
+				<td>Centro comercial Moctezuma</td>
+				<td>Francisco Chang</td>
+				<td>Mexico</td>
+			</tr>
+			<tr>
+				<td>Ernst Handel</td>
+				<td>Roland Mendel</td>
+				<td>Austria</td>
+			</tr>
+
+		</table>
+		
+
+
+		<form id="formid" class="form">
+			<br />
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email"><br><br />
+
+			<label for="option1">Option 1:</label>
+			<input type="checkbox" id="option1" name="option1" value="option1">
+
+			<label for="option2">Option 2:</label>
+			<input type="checkbox" id="option2" name="option2" value="option2"><br><br />
+
+			<label for="gender">Gender:</label><br>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label>
+
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label><br /><br />
+
+			<input type="button" value="submit"/>
+			<input type="reset" value="reset"/>
+			<input type="hidden" value="cancel"/><br />
+			<p></p>
+		</form>
+
+	</div>
+
+
+</div>
+
+
+<script>
+
+	$(function () {
+		$('#class-Button').click(function () {
+
+			var elementName = $('#find').val();
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': ''
+			});
+
+			$('.rightChild.html-block').find(elementName + ":last-child").css({
+				'background-color': 'rgb(231, 166, 166)',
+				'border': '1px solid black'
+			});
+		});
+
+		// reset
+		$('#class-reset').click(function () {
+			$('#find').val = '';
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': ''
+			});
+		});
+	});
+
+</script>
+<style>
+	table {
+
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		margin: 1em;
+		border: solid black;
+		width: 50%;
+		background-color: rgb(227, 218, 206);
+	}
+
+	td,
+	th {
+		border: 1px solid black;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:hover {
+		background-color: beige;
+	}
+
+	.form {
+		background-color: rgb(227, 218, 206);
+		padding: 1rem;
+		margin: 1em;
+		border: solid black;
+	}
+</style>

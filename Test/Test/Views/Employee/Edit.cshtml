@@ -1,0 +1,126 @@
+﻿@model Employee
+@{
+    var depts = ViewBag.Departments;
+}
+
+<style>
+    .form {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 14px;
+        margin-left: 28rem;
+        border-radius: 12px;
+        background-color: lavender;
+    }
+</style>
+
+<form class="form">
+    <label for="EmpName">Employee name:</label><br>
+    <input type="text" id="EmpName" name="EmpName" value="@Model.Name"><br>
+
+    <label for="PhoneNo">Phone Number:</label><br>
+    <input type="text" id="PhoneNo" name="PhoneNo" value="@Model.PhoneNumber"><br>
+
+    <label for="Salary">Salary:</label><br>
+    <input type="number" id="Salary" name="Salary" value="@Model.Salary"><br>
+
+    <label for="Designation">Designation:</label><br>
+    <input type="text" id="Designation" name="Designation" value="@Model.Designation"><br>
+
+    <label for="DateOfBirth">Date Of Birth:</label><br>
+    <input type="date" id="DateOfBirth" value="@Model.DateOfBirth" name="DateOfBirth" required /><br>
+
+
+    <label for="Email">Email:</label><br>
+    <input type="email" id="Email" name="Email" value="@Model.Email"><br>
+
+    <label for="DeptId">Department:</label> <br>
+    <select name="DeptId" id="DeptId">
+        @foreach (var dpt in depts)
+        {
+            Department dp = dpt;
+            if (Model.DeptId == dp.Id)
+            {
+                <option value="@Model.DeptId">@dp.Name</option>
+            }
+        }
+        @foreach (var dpt in depts)
+        {
+            Department dp = dpt;
+            <option value="@dp.Id">@dp.Name</option>
+        }
+    </select><br>
+    <input type="button" style=" margin-top: 4px;border-radius:6px" value="Update" class="alert-success" onclick="patch()" />
+    <input type="button" style="border-radius:6px" value="Cancel" class="alert-danger" onclick="cancel()" />
+</form>
+
+<script>
+
+    function cancel() {
+        loadgrid()
+        $("#form").html("");
+    }
+
+    function loadgrid() {
+        $.ajax({
+            url: "/Employee/GetAllEmployees",
+            dataType: 'html',
+            success: function (data) {
+                $("#EmployeeGrid").html(data)
+                $("#form").html("");
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+
+    function patch() {
+        var operation = [];
+        if ('@Model.Name' != $("#EmpName").val()) {
+            var PatchedData = { op: "replace", path: "/Name", value: $("#EmpName").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.PhoneNumber' != $("#PhoneNo").val()) {
+            var PatchedData = { op: "replace", path: "/PhoneNumber", value: $("#PhoneNo").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.Salary' != $("#Salary").val()) {
+            var PatchedData = { op: "replace", path: "/Salary", value: $("#Salary").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.Designation' != $("#Designation").val()) {
+            var PatchedData = { op: "replace", path: "/Designation", value: $("#Designation").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.DateOfBirth' != $("#DateOfBirth").val()) {
+            var PatchedData = { op: "replace", path: "/DateOfBirth", value: $("#DateOfBirth").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.Email' != $("#Email").val()) {
+            var PatchedData = { op: "replace", path: "/EmailId", value: $("#Email").val() };
+            operation.push(PatchedData);
+        }
+        if ('@Model.DeptId' != $("#DeptId").val()) {
+            var PatchedData = { op: "replace", path: "/DeptId", value: $("#DeptId").val() };
+            operation.push(PatchedData);
+        }
+        patchData(operation);
+    }
+    function patchData(operation) {
+
+        $.ajax({
+            method: "Patch",
+            url: "/Employee/PatchEmployee?id=" + @Model.Id,
+            data: JSON.stringify(operation),
+            contentType: "application/json-patch+json",
+            success: function () {
+                loadGrid()
+                $("#form").html("");
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+</script>

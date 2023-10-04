@@ -1,0 +1,12 @@
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Entities.deps.json
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Entities.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\bin\Debug\net6.0\EmployeeManagement.Entities.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.csproj.AssemblyReference.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.AssemblyInfoInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.AssemblyInfo.cs
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\refint\EmployeeManagement.Entities.dll
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\EmployeeManagement.Entities.pdb
+C:\Users\Coditas\source\repos\EmployeeManagementAPI\EmployeeManagement.Entities\obj\Debug\net6.0\ref\EmployeeManagement.Entities.dll

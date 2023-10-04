@@ -1,0 +1,37 @@
+﻿[
+  {
+    "WorkflowName": "SalaryCalculations",
+    "Rules": [
+      {
+        "RuleName": "CalculateSalaryRule1",
+        "Expression": "experienceInYears >= 0 AND experienceInYears < 1",
+        "Salary": 400000
+      },
+      {
+        "RuleName": "CalculateSalaryRule2",
+        "Expression": "experienceInYears >= 1 AND experienceInYears < 3",
+        "Salary": 700000
+      },
+      {
+        "RuleName": "CalculateSalaryRule3",
+        "Expression": "experienceInYears >= 3 AND experienceInYears < 5",
+        "Salary": 1000000
+      },
+      {
+        "RuleName": "CalculateSalaryRule4",
+        "Expression": "experienceInYears >= 5 AND experienceInYears < 10",
+        "Salary": 2000000
+      },
+      {
+        "RuleName": "CalculateSalaryRule5",
+        "Expression": "experienceInYears >=10 AND experienceInYears < 15",
+        "Salary": 3000000
+      },
+      {
+        "RuleName": "CalculateSalaryRule6",
+        "Expression": "experienceInYears >=15",
+        "Salary": 3000000
+      }
+    ]
+  }
+]

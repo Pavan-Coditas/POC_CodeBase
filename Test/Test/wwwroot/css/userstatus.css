@@ -1,0 +1,86 @@
+﻿.signalr-demo {
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+.container {
+    display: flex;
+ /*   height: 100vh;
+    width: 100%;*/
+}
+
+.left-block {
+    position: relative;
+    width: 65%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+/*.right-block {
+    width: 25%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    text-align: left;
+}*/
+
+.signalr-demo {
+    position: absolute;
+    bottom: 0;
+}
+
+.online-user {
+    color: black;
+    margin: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.offline-user {
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.online-user::before {
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.offline-user::before {
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+[id^="incoming-chatbox"] {
+    /* CSS rules for the selected elements */
+    display: contents;
+}
+

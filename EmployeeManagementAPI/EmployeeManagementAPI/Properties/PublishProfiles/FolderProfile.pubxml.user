@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Publish\Backend</_PublishTargetUrl>
+    <History>True|2023-05-22T11:19:22.9853923Z;False|2023-05-22T16:46:21.8147160+05:30;False|2023-05-22T16:44:07.8432420+05:30;False|2023-05-22T16:32:37.9108796+05:30;False|2023-05-22T16:29:45.3726267+05:30;False|2023-05-22T16:24:17.1700194+05:30;True|2023-05-22T16:19:24.1769102+05:30;True|2023-05-22T15:59:47.6980405+05:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SecureConnection">
+      <Value>Data Source=11078-LAP-0703\MSSQLSERVER01%3bInitial Catalog=EmployeeManagement%3buser id=sa%3bpassword=pawan24%3bTrusted_Connection=False%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

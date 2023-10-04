@@ -1,0 +1,383 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var jwtToken = HttpContextAccessor.HttpContext!.Session.GetString("token");
+    var UserName = Context.Session.GetString("UserName");
+}
+
+<html lang="en">
+<head>
+    <title>Training</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.signalr/2.4.3/jquery.signalr.min.js"></script>
+    <link href="~/css1/style.css" rel="stylesheet" />
+    <script src="js1/jquery.min.js"></script>
+    <script src="js1/popper.js"></script>
+    <script src="js1/bootstrap.min.js"></script>
+    <script src="js1/main.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/microsoft/signalr/dist/browser/signalr.js"></script>
+    <link href="~/css/userstatus.css" rel="stylesheet" />
+    <link href="~/css/chatpopup.css" rel="stylesheet" />
+   @await RenderSectionAsync("Scripts", required: false)
+
+</head>
+
+<body>
+
+    @if (jwtToken != null)
+    {
+        <div style="min-height:100vh;" class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar">
+                <div class="custom-menu">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h1><a href="@Url.Action("Navigation", "Comman")" class="logo">Training <span>CAS Agency</span></a></h1>
+                    <ul class="list-unstyled components mb-5">
+
+                        <li>
+                            <a href="@Url.Action("EmployeeDashboard", "Employee" )"><span class="fa fa-user mr-3"></span> Manage Employee</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("GetSechduleReportDashboard", "FilterData" )"><span class="fa fa-cogs mr-3"></span> Schedule Report</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Selectors", "Comman" )"><span class="fa fa-briefcase mr-3"></span> JQuery Selector</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Example", "Comman" )"><span class="fa fa-cogs mr-3"></span> Settings</a>
+                        </li>
+                       @* <li>
+                            <a href="@Url.Action("Notification", "Chat" )"><span class="fa fa-cogs mr-3"></span> Notification</a>
+                        </li>*@
+                        <li>
+                            <a href="@Url.Action("UserLogout", "Account" )"><span class="fa fa-paper-plane mr-3"></span> LogOut</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            <br> All rights reserved <br> This template is made with <i class="icon-heart" aria-hidden="true"></i> by Prashant's Team.
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+
+                </div>
+            </nav>
+            <div style="width:100%;">
+                <script>
+                    function openForm() {
+                        var form = document.getElementById("myForm");
+                        var chatImage = document.getElementById("chat-image");
+
+                        if (form.style.display === "block") {
+                            // Form is currently open, so close it
+                            form.style.display = "none";
+                            chatImage.src = "/images/chatbutton.png";
+                        } else {
+                            // Form is currently closed, so open it
+                            form.style.display = "block";
+                            chatImage.src = "/images/closebutton.png";
+                        }
+                    }
+
+                    const connection = new signalR.HubConnectionBuilder()
+                        .withUrl("/chathub")
+                        .build();
+
+                    connection.start().catch(err => console.error(err));
+                    var receiverId = null;
+                    var chatboxIndex = 1;
+
+                    function openMessageForm(receiverId, receiverName) {
+                        const chatboxId = `chatbox-${chatboxIndex}`;
+                        const messageContainerId = `message-container-${chatboxIndex}`;
+                        const messageInputId = `message-input-${chatboxIndex}`;
+                        const sendMessageBtnId = `send-message-btn-${chatboxIndex}`;
+
+                        // Create the chatbox dynamically
+                        const chatboxHtml = `
+                        <div class="chatbox-holder" id="${chatboxId}">
+                        <div class="chatbox">
+                        <div class="chatbox-top">
+                        <div class="chat-partner-name">
+                        <span>${receiverName}</span>
+                        </div>
+                        <div class="chatbox-icons">
+                        <a href="javascript:void(0);"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:void(0);"><i class="fa fa-close"></i></a>
+                        </div>
+                        </div>
+                        <div class="chat-messages">
+                        <div class="message-box-holder" id="${messageContainerId}">
+                        <!-- Messages will be dynamically updated -->
+                        </div>
+                        </div>
+                        <div id="filename-container"></div>
+                        <div class="chat-input-holder">
+                        <label for="fileinput" class="fileinput-label">
+                        <input type="file" id="fileinput" style="display: none;" onchange="handleFileUpload()"/>
+                        <i class="fa fa-paperclip fileinput-icon" style="font-size: 30px;"></i>
+                        </label>
+                        <input type="text" data-emoji="true" id="${messageInputId}" style="width: 100%;border-radius:25px;" />
+                        <input type="button" value="Send" class="message-send" id="${sendMessageBtnId}" style="border-radius: 25px;" />
+                        </div>
+                        </div>
+                        </div>
+                    `;
+
+                        // Append the chatbox HTML to the container
+                        $('.container').append(chatboxHtml);
+
+                        // Set the position of the chatbox dynamically
+                        const chatboxes = $('.chatbox-holder');
+                        const chatboxWidth = 300; // Adjust the width as needed
+                        const chatboxSpacing = 100; // Adjust the spacing between chatboxes as needed
+                        const newPosition = (chatboxes.length - 1) * (chatboxWidth + chatboxSpacing);
+                        $(`#${chatboxId}`).css('left', newPosition);
+                        $(`#${messageContainerId}`).empty();
+
+                        // Attach event handlers for the new chatbox
+                        $(`#${sendMessageBtnId}`).click(function (e) {
+                            let message = $(`#${messageInputId}`).val();
+                            let sender = receiverId;
+                            $(`#${messageInputId}`).val('');
+                           
+                            var file = $(`#${chatboxId} #fileinput`)[0].files[0];
+                            console.log(file);
+                            if(file!=null){
+                                appendSentMessage(chatboxId, receiverId, message +' '+ $(`#${chatboxId} #fileinput`)[0].files[0].name);
+                            }
+                            else{
+                            appendSentMessage(chatboxId, receiverId, message);
+                            }
+                            if (file) {
+                                var formData = new FormData();
+                                formData.append('file', file);
+                                message+='<br>';
+                                message += UploadFile(formData);
+                                $(`#${chatboxId} #fileinput`).val('');
+                                handleFileUpload();
+                            }
+                            connection.invoke('SendMessage', sender, message).catch(err => console.error(err));
+                            e.preventDefault();
+                        });
+
+                        $(`#${chatboxId} .fa-minus`).click(function () {
+                            $(this).closest('.chatbox').toggleClass('chatbox-min');
+                        });
+
+                        $(`#${chatboxId} .fa-close`).click(function () {
+                            $(`#${chatboxId}`).remove(); // Remove the chatbox element from the DOM
+                        });
+
+                        chatboxIndex++;
+                    }
+
+
+                    function UploadFile(formData) {
+                        var result = $.ajax({
+                            url: '/Chat/UploadFile',
+                            type: 'POST',
+                            data: formData,
+                            dataType:"json",
+                            contentType: false,
+                            processData: false,
+                            cache: false,
+                            async:false
+                        });
+
+                        if (result.statusText === "success"){
+                            return result.responseText;
+                        }
+                        return result
+                    }
+
+                    function handleFileUpload() {
+                        const fileInput = document.getElementById("fileinput");
+                        const filenameContainer = document.getElementById("filename-container");
+
+                        const file = fileInput.files[0];
+                        if (file) {
+                            filenameContainer.textContent = file.name;
+                        } else {
+                            filenameContainer.textContent = "";
+                        }
+                    }
+
+                    connection.on('ReceiveMessage', (sender, senderId, message) => {
+                        const existingChatbox = $('.chatbox-holder').filter(function () {
+                            const partnerName = $(this).find('.chat-partner-name span').text();
+                            return partnerName === sender;
+                        });
+
+                        if (existingChatbox.length > 0) {
+                            // Chatbox for the sender is already open, append the received message
+                            const chatboxId = existingChatbox.attr('id');
+                            appendReceivedMessage(sender, message, chatboxId);
+                        } else {
+                            // Chatbox doesn't exist, check if receiver is online
+                            const receiverOnline = $('.online-user').filter(function () {
+                                const userName = $(this).text();
+                                return userName === sender;
+                            });
+
+                            if (receiverOnline.length > 0) {
+                                // Receiver is online, open a new chatbox and append the received message
+                                const chatboxId = `chatbox-${chatboxIndex}`;
+                                openMessageForm(senderId, sender);
+                                appendReceivedMessage(sender, message, chatboxId);
+                            } else {
+                                // Receiver is not online, display a message to the sender
+                                //alert('The receiver is not currently online.');
+                            }
+                        }
+                    });
+
+                    function appendReceivedMessage(sender, message, chatboxId) {
+                        let messageContainerId = `#${chatboxId} .message-box-holder`;
+                        let messageBox = $('<div>').addClass('message-box message-partner').html(message);
+                        let messageSender = $('<div>').addClass('message-sender').text(sender);
+
+                        let messageContainer = $(messageContainerId);
+                        let incomingMessageContainer = $('<div>').attr('id', `incoming-${chatboxId}`);
+                        incomingMessageContainer.append(messageSender);
+                        incomingMessageContainer.append(messageBox);
+                        incomingMessageContainer.append('<br>'); // Add a line break between messages
+                        messageContainer.append(incomingMessageContainer);
+
+                        // Scroll to the bottom of the message container to show the latest message
+                        messageContainer.scrollTop(messageContainer.prop('scrollHeight'));
+                    }
+
+                    function appendSentMessage(chatboxId, receiverId, message) {
+                        let messageBoxHolder = $(`#${chatboxId} .message-box-holder`);
+
+                        if (receiverId === null) {
+                            // Receiver is not online, append a message indicating the user is not online
+                            let notOnlineMessage = $('<div>').addClass('message-box').text('The receiver is not currently online.');
+                            messageBoxHolder.append(notOnlineMessage);
+                            messageBoxHolder.append('<br>'); // Add a line break
+                        } else {
+                            let messageBox = $('<div>').addClass('message-box').text(message);
+
+                            if (!messageBoxHolder.find('.message-box').last().text().trim().includes(message.trim())) {
+                                messageBoxHolder.append(messageBox);
+                                messageBoxHolder.append('<br>'); // Add a line break between messages
+                            }
+                        }
+                        // Scroll to the bottom of the message container to show the latest message
+                    }
+
+                    connection.on('UserConnected', (connectionId, userName) => {
+                        updateUserStatus(connectionId, userName, true);
+                        connectedUsers.push(userName); // Add the connected user to the list
+                    });
+
+                    connection.on('UserDisconnected', (connectionId) => {
+                        updateUserStatus(connectionId, '', false);
+                    });
+
+
+                    $(document).ready(function () {
+                        setInterval(updateUserList, 2000);
+                    });
+                    function updateUserList() {
+                        $.ajax({
+                            url: '/Chat/GetConnectedUsers',
+                            method: 'GET',
+                            success: function (data) {
+                                // Populate the user list
+                                sessionStorage.setItem('userListData', JSON.stringify(data));
+                                populateUserList(data);
+                            },
+                            error: function (xhr, status, error) {
+                                console.error(error);
+                            }
+                        });
+                    }
+
+                    function populateUserList(data) {
+                        let userListContainer = $('#userList');
+                        userListContainer.empty();
+                        data.forEach(function (user) {
+                            if (user.userName === '@UserName') {
+                                return; // Skip logged-in user
+                            }
+                            let statusClass = user.isConnected ? 'online-user' : 'offline-user';
+                            let userElement = $('<span>').addClass(statusClass).text(user.userName);
+                            userElement.click(function () {
+                                openMessageForm(user.connectionId, user.userName);
+                            });
+                            userListContainer.append(userElement);
+                            userListContainer.append('<br>');
+                        });
+                    }
+
+                    function updateUserStatus(connectionId, userName, isConnected) {
+                        if (isConnected) {
+                            connectedUsers.push(connectionId);
+                        } else {
+                            let index = connectedUsers.indexOf(connectionId);
+                            if (index !== -1) {
+                                connectedUsers.splice(index, 1);
+                            }
+                        }
+
+                        let userListContainer = $('#userList');
+                        let userElements = userListContainer.find('span');
+                        userElements.each(function () {
+                            let userElement = $(this);
+                            if (userElement.text() === userName) {
+                                if (isConnected) {
+                                    userElement.addClass('online-user');
+                                    userElement.removeClass('offline-user');
+                                } else {
+                                    userElement.addClass('offline-user');
+                                    userElement.removeClass('online-user');
+                                }
+                            }
+                        });
+                    }
+                </script>
+                <script src="~/lib/signalr/signalr.js"></script>
+                <link href="~/css/chatbox.css" rel="stylesheet" />
+                <div class="container">
+                </div>
+                <a class="open-button" onclick="openForm()">
+                    <img id="chat-image" src="~/images/chatbutton.png" alt="Chat" style="width:3rem;top: 30px;position: relative;">
+                </a>
+                <div class="chat-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+                        <h1 style="color:#3445b4;">Chat</h1>
+                        <div id="userList">
+                            <!-- User list will be dynamically updated -->
+                        </div>
+                    </form>
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+    }
+</body>
+</html>
+<style>
+    .center {
+        margin-top: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

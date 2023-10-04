@@ -1,0 +1,12 @@
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\bin\Debug\net6.0\RabbitMQEventIntegrationBus.deps.json
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\bin\Debug\net6.0\RabbitMQEventIntegrationBus.dll
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\bin\Debug\net6.0\RabbitMQEventIntegrationBus.pdb
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.csproj.AssemblyReference.cache
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.AssemblyInfoInputs.cache
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.AssemblyInfo.cs
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.csproj.CoreCompileInputs.cache
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.dll
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\refint\RabbitMQEventIntegrationBus.dll
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\RabbitMQEventIntegrationBus.pdb
+C:\Users\Coditas\source\repos\RabbitMQDemo\RabbitMQEventIntegrationBus\obj\Debug\net6.0\ref\RabbitMQEventIntegrationBus.dll

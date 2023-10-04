@@ -1,0 +1,20 @@
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.signalr/2.4.3/jquery.signalr.min.js"></script>
+<script>
+    const testConnection = new signalR.HubConnectionBuilder()
+        .withUrl("https://localhost:7181/notificationHub")
+        .build();
+
+    testConnection.on("SendNotificationToUser", function (message) {
+        console.log("Received notification:", message);
+    });
+
+    testConnection.start()
+        .then(function () {
+            console.log("SignalR connection established.");
+        })
+        .catch(function (err) {
+            console.error("Error establishing SignalR connection:", err);
+        });
+
+</script>

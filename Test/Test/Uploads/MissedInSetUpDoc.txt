@@ -1,0 +1,33 @@
+We have to download these two files if your are facing DevExpress Namesapce errors
+DXperienceUniversal-11.1.4
+DXperienceUniversal-11.1.12
+
+Sequence of building projects.
+1)ConnectAndSellState
+2)Cast-A-Net-WCF
+3)ConnectAndSell-WCF
+4)CASLogConsumer
+5)CASThreadService
+
+We have to download these two files if your are facing DevExpress Namesapce errors
+DXperienceUniversal-11.1.4
+DXperienceUniversal-11.1.12
+
+Sequence of building projects.
+1)ConnectAndSellState
+2)Cast-A-Net-WCF
+3)ConnectAndSell-WCF
+4)CASLogConsumer
+5)CASThreadService
+
+We have to download these two files if your are facing DevExpress Namesapce errors
+DXperienceUniversal-11.1.4
+DXperienceUniversal-11.1.12
+
+Sequence of building projects.
+1)ConnectAndSellState
+2)Cast-A-Net-WCF
+3)ConnectAndSell-WCF
+4)CASLogConsumer
+5)CASThreadService
+

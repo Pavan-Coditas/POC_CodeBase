@@ -1,0 +1,169 @@
+﻿<!-- for element -->
+<div id="div-1">
+	<div class="rightChild syntax">
+		<span STYLE="font-weight:bold">Syntax : $(".class") </span><br>
+		<span>
+			Description: The .class selector selects all elements with the specific class. The class refers to the class attribute of an HTML element.
+
+		</span>
+
+	</div>
+	<hr />
+
+	<div class="rightChild code">
+		<span STYLE="font-weight:bold">Get it visualized by selecting a class... </span><br>
+		<!-- <p> <span> $(' <input type="text" id="find" name="find" placeholder="element name.."> ')</span> </p> -->
+
+		<label for="element">Choose an element : </label>
+		<span>
+			$('.
+			<select name="element" id="find">
+				<option value="">Select</option>
+				<option value="Heading">heading</option>
+				<option value="SubHeading">SubHeading</option>
+				<option value="classA">Class-A </option>
+				<option value="classC">Class-C</option>
+				<option value="formDeatils">formDeatils</option>
+				
+			</select> ')
+		</span>
+
+
+		<input style="margin-left: 1rem;" type="button" id="class-Button" value="Try out !!" />
+		<input style="margin-left: 1rem;" type="button" id="class-reset" value="Reset.." />
+		<div id="display"></div>
+		<div id="myDiv" style="display: none;">hii</div>
+		<div id="code"></div>
+		<div id="code2"></div>
+	</div><hr />
+	<div class="rightChild html-block">
+
+		<h1 class="Heading" style="text-align:center">I'm < h1> with class "heading"</h1>
+		<h2 class="SubHeading" style="text-align:center">I'm Sub heading with class "SubHeading"</h2>
+		<div class="intro">
+			<p>
+				I'm < p> tag !! The < p> tag defines a paragraph.
+				Browsers automatically add a single blank line before and after each < p> element.
+			</p>
+
+
+		</div>
+		<div style="display:inline-flex; text-align:center" id="boxes"; class="BoxContainer">
+
+			<div class="classA" id="leftbox">
+				<h2>Class A</h2>
+				<span class="spanText">
+					The < div> tag defines a division or a section in an HTML document.Browsers always place a line break before and after element.
+				</span>
+			</div>
+
+			<div class="classB" id="middlebox">
+				<h2>Class B</h2>
+				<span class="spanText">
+					The < div> tag is used as a container for HTML elements - which is then styled with
+					CSS or manipulated with JavaScript.
+				</span>
+			</div>
+
+			<div class="classC" id="rightbox">
+				<h2>Class C:</h2>
+				<span class="spanText">
+					The < div> tag is easily styled by using the class or id attribute. Any sort of
+					content can be put inside the < div> tag!
+				</span>
+			</div>
+		</div><br />
+
+		<hr />
+		<br />
+		
+		<div style="background-color:aliceblue;" >
+			
+
+		<form class="formDeatils">
+				<div style="padding:4rem; text-align:center;">
+			<br />
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email"><br><br />
+
+			<label for="option1">Option 1:</label>
+			<input type="checkbox" id="option1" name="option1" value="option1">
+
+			<label for="option2">Option 2:</label>
+			<input type="checkbox" id="option2" name="option2" value="option2"><br><br />
+
+			<label for="gender">Gender:</label><br>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label>
+
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label><br /><br />
+
+			<input type="button" value="submit" />
+			<input type="reset" value="reset" />
+			<input type="hidden" value="cancel" /><br />
+			<p></p>
+				</div>
+		</form>
+			
+		</div>
+		<br />
+		<br />
+
+	</div>
+
+
+</div>
+
+
+<script>
+
+	$(function () {
+		$('#class-Button').click(function () {
+
+			var elementName = $('#find').val();
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': '',
+				'color':'black'
+			});
+
+			$('.rightChild.html-block').find("." + elementName).css({
+				'background-color': '#3445b4'
+			});
+
+			$('.rightChild.html-block').find("." + elementName).css({
+				'color': 'white'
+			});
+			$('.rightChild.html-block').find("." + elementName).find('*').css({
+				'color': 'white'
+			});
+
+
+			var container = $('#flex-child-right');
+			var scrollTo = $("." + elementName)[0];
+
+			$(container).animate({
+				scrollTop: $("." + elementName).offset().top
+			}, 1000);
+		});
+
+		// reset
+		$('#class-reset').click(function () {
+			$('#find').val = '';
+			$('.rightChild.html-block').find('*').css({
+				'background-color': '',
+				'border': ''
+			});
+
+			$('.rightChild.html-block').find('*').css({
+				'color': 'black'
+			});
+		});
+
+
+	});
+
+</script>

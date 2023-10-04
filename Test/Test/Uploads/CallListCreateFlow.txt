@@ -1,0 +1,361 @@
+[Default Route]
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]
+		-> Global.asax.cs 
+			(Default Controller = CallList;
+			Default Action = Index;
+			UrlParameter.Optional = id )
+
+
+
+[Creating New Call-List]
+* Actions exist in 
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]		
+		-> Controllers
+			-> CallListController
+			
+[Call List Creation Flow]			
+* In the default web page (ConnectAndSell/CallList/Index/)
+	* On clicking New List
+		i. Action Wizard is called
+			a. Action GetListCategories is called
+			b. ViewBag is initialized
+			c. Session var ["CallListWizard"] is created.
+			d. WizardBaseModel is created & Initialized.
+			e. Partial View _Wizard is returned with the model
+		
+		ii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized.
+			b. Called Actions 
+				-> GetListCategories, GetOODEnabledCompanies etc
+			c. model is further modified.
+			d. Unique key for session is created.
+			e. Partial View _WizardBase is returned with the model
+			
+		[At this stage a form for 'New Call List' appears.]
+		[After filling form on clicking next]
+		iii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized
+			b. model is being modified
+			c. Partial View _WizardListSetting is returned
+				(having param: LargeJsonResult)
+				
+		
+		[At this stage a form for 'New Call List - List Settings' appears.]
+		[After filling form on clicking next]
+		iv. Action CallListSettings is called (param: WizardListSettingsModel modelIn)
+			a. ViewBag is initialized
+			b. Some conditional checks performed.
+			c. modelIn is modified.
+			d. Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+	
+		[At thus stage a form for 'List assignment' will appears.]
+		After selecting the options and clicking next
+		v.Action WizardAssignment will be called
+			a.ViewBag is initialized
+			b.Model is modified based on certain conditions.
+			c.Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+				
+		[At this stage a fom for 'Predictive Pursuit Settings' appears.]
+		[After filling form on clicking Next]
+		vi. Action WizardMultiTouch is called(param: WizardMultiTouchModel modelIn)
+			a. ViewBag is initialized
+			b. modelIn is being modified
+			c. Partial View _WizardFile is returned
+				(having param: GetWizardFileModel(modelIn))
+				
+		[At this stage 'Choose import File' form appears]
+		[On selecting file and clicking on Next]
+		vii. Action WizardFile is called (param: WizardFileModel)
+			a. csv File will be loaded
+			b. Partial View _WizardReview returned
+				(having param : GetWizardReviewModel(modelIn))
+			
+		[At this stage form 'list import review' will appear]
+		[On clicking submit]
+		viii. Action SaveFileList will be called.
+			a. File will be saved in this action with the help of session data
+			b. Partial View _WizardReview will be returned
+				(having param : GetWizardReviewModel(modelIn))
+				
+		ix. Action WizardReview will be called (param : WizardReviewModel model)
+			a. This action will display message in wizard.
+				A. whether list is created/updated successfully, Or
+				B. Any exception if occured
+		
+GetFileHeaders(it will load all the headers in the table)
+FileDataSample(This method will get all the all the records from the list)
+RefreshCSVHeaders(it will reset the csv list headers)[Default Route]
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]
+		-> Global.asax.cs 
+			(Default Controller = CallList;
+			Default Action = Index;
+			UrlParameter.Optional = id )
+
+
+
+[Creating New Call-List]
+* Actions exist in 
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]		
+		-> Controllers
+			-> CallListController
+			
+[Call List Creation Flow]			
+* In the default web page (ConnectAndSell/CallList/Index/)
+	* On clicking New List
+		i. Action Wizard is called
+			a. Action GetListCategories is called
+			b. ViewBag is initialized
+			c. Session var ["CallListWizard"] is created.
+			d. WizardBaseModel is created & Initialized.
+			e. Partial View _Wizard is returned with the model
+		
+		ii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized.
+			b. Called Actions 
+				-> GetListCategories, GetOODEnabledCompanies etc
+			c. model is further modified.
+			d. Unique key for session is created.
+			e. Partial View _WizardBase is returned with the model
+			
+		[At this stage a form for 'New Call List' appears.]
+		[After filling form on clicking next]
+		iii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized
+			b. model is being modified
+			c. Partial View _WizardListSetting is returned
+				(having param: LargeJsonResult)
+				
+		
+		[At this stage a form for 'New Call List - List Settings' appears.]
+		[After filling form on clicking next]
+		iv. Action CallListSettings is called (param: WizardListSettingsModel modelIn)
+			a. ViewBag is initialized
+			b. Some conditional checks performed.
+			c. modelIn is modified.
+			d. Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+	
+		[At thus stage a form for 'List assignment' will appears.]
+		After selecting the options and clicking next
+		v.Action WizardAssignment will be called
+			a.ViewBag is initialized
+			b.Model is modified based on certain conditions.
+			c.Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+				
+		[At this stage a fom for 'Predictive Pursuit Settings' appears.]
+		[After filling form on clicking Next]
+		vi. Action WizardMultiTouch is called(param: WizardMultiTouchModel modelIn)
+			a. ViewBag is initialized
+			b. modelIn is being modified
+			c. Partial View _WizardFile is returned
+				(having param: GetWizardFileModel(modelIn))
+				
+		[At this stage 'Choose import File' form appears]
+		[On selecting file and clicking on Next]
+		vii. Action WizardFile is called (param: WizardFileModel)
+			a. csv File will be loaded
+			b. Partial View _WizardReview returned
+				(having param : GetWizardReviewModel(modelIn))
+			
+		[At this stage form 'list import review' will appear]
+		[On clicking submit]
+		viii. Action SaveFileList will be called.
+			a. File will be saved in this action with the help of session data
+			b. Partial View _WizardReview will be returned
+				(having param : GetWizardReviewModel(modelIn))
+				
+		ix. Action WizardReview will be called (param : WizardReviewModel model)
+			a. This action will display message in wizard.
+				A. whether list is created/updated successfully, Or
+				B. Any exception if occured
+		
+GetFileHeaders(it will load all the headers in the table)
+FileDataSample(This method will get all the all the records from the list)
+RefreshCSVHeaders(it will reset the csv list headers)[Default Route]
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]
+		-> Global.asax.cs 
+			(Default Controller = CallList;
+			Default Action = Index;
+			UrlParameter.Optional = id )
+
+
+
+[Creating New Call-List]
+* Actions exist in 
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]		
+		-> Controllers
+			-> CallListController
+			
+[Call List Creation Flow]			
+* In the default web page (ConnectAndSell/CallList/Index/)
+	* On clicking New List
+		i. Action Wizard is called
+			a. Action GetListCategories is called
+			b. ViewBag is initialized
+			c. Session var ["CallListWizard"] is created.
+			d. WizardBaseModel is created & Initialized.
+			e. Partial View _Wizard is returned with the model
+		
+		ii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized.
+			b. Called Actions 
+				-> GetListCategories, GetOODEnabledCompanies etc
+			c. model is further modified.
+			d. Unique key for session is created.
+			e. Partial View _WizardBase is returned with the model
+			
+		[At this stage a form for 'New Call List' appears.]
+		[After filling form on clicking next]
+		iii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized
+			b. model is being modified
+			c. Partial View _WizardListSetting is returned
+				(having param: LargeJsonResult)
+				
+		
+		[At this stage a form for 'New Call List - List Settings' appears.]
+		[After filling form on clicking next]
+		iv. Action CallListSettings is called (param: WizardListSettingsModel modelIn)
+			a. ViewBag is initialized
+			b. Some conditional checks performed.
+			c. modelIn is modified.
+			d. Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+	
+		[At thus stage a form for 'List assignment' will appears.]
+		After selecting the options and clicking next
+		v.Action WizardAssignment will be called
+			a.ViewBag is initialized
+			b.Model is modified based on certain conditions.
+			c.Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+				
+		[At this stage a fom for 'Predictive Pursuit Settings' appears.]
+		[After filling form on clicking Next]
+		vi. Action WizardMultiTouch is called(param: WizardMultiTouchModel modelIn)
+			a. ViewBag is initialized
+			b. modelIn is being modified
+			c. Partial View _WizardFile is returned
+				(having param: GetWizardFileModel(modelIn))
+				
+		[At this stage 'Choose import File' form appears]
+		[On selecting file and clicking on Next]
+		vii. Action WizardFile is called (param: WizardFileModel)
+			a. csv File will be loaded
+			b. Partial View _WizardReview returned
+				(having param : GetWizardReviewModel(modelIn))
+			
+		[At this stage form 'list import review' will appear]
+		[On clicking submit]
+		viii. Action SaveFileList will be called.
+			a. File will be saved in this action with the help of session data
+			b. Partial View _WizardReview will be returned
+				(having param : GetWizardReviewModel(modelIn))
+				
+		ix. Action WizardReview will be called (param : WizardReviewModel model)
+			a. This action will display message in wizard.
+				A. whether list is created/updated successfully, Or
+				B. Any exception if occured
+		
+GetFileHeaders(it will load all the headers in the table)
+FileDataSample(This method will get all the all the records from the list)
+RefreshCSVHeaders(it will reset the csv list headers)[Default Route]
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]
+		-> Global.asax.cs 
+			(Default Controller = CallList;
+			Default Action = Index;
+			UrlParameter.Optional = id )
+
+
+
+[Creating New Call-List]
+* Actions exist in 
+-> ConnectAndSell
+	-> ConnectAndSell.Web [Startup Project]		
+		-> Controllers
+			-> CallListController
+			
+[Call List Creation Flow]			
+* In the default web page (ConnectAndSell/CallList/Index/)
+	* On clicking New List
+		i. Action Wizard is called
+			a. Action GetListCategories is called
+			b. ViewBag is initialized
+			c. Session var ["CallListWizard"] is created.
+			d. WizardBaseModel is created & Initialized.
+			e. Partial View _Wizard is returned with the model
+		
+		ii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized.
+			b. Called Actions 
+				-> GetListCategories, GetOODEnabledCompanies etc
+			c. model is further modified.
+			d. Unique key for session is created.
+			e. Partial View _WizardBase is returned with the model
+			
+		[At this stage a form for 'New Call List' appears.]
+		[After filling form on clicking next]
+		iii. Action WizardBase is called (param: WizardBaseModel model)
+			a. ViewBag is initialized
+			b. model is being modified
+			c. Partial View _WizardListSetting is returned
+				(having param: LargeJsonResult)
+				
+		
+		[At this stage a form for 'New Call List - List Settings' appears.]
+		[After filling form on clicking next]
+		iv. Action CallListSettings is called (param: WizardListSettingsModel modelIn)
+			a. ViewBag is initialized
+			b. Some conditional checks performed.
+			c. modelIn is modified.
+			d. Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+	
+		[At thus stage a form for 'List assignment' will appears.]
+		After selecting the options and clicking next
+		v.Action WizardAssignment will be called
+			a.ViewBag is initialized
+			b.Model is modified based on certain conditions.
+			c.Partial View _WizardMultiTouch returned
+				(having param : GetWizardMultiTouchModel(modelIn))
+				
+		[At this stage a fom for 'Predictive Pursuit Settings' appears.]
+		[After filling form on clicking Next]
+		vi. Action WizardMultiTouch is called(param: WizardMultiTouchModel modelIn)
+			a. ViewBag is initialized
+			b. modelIn is being modified
+			c. Partial View _WizardFile is returned
+				(having param: GetWizardFileModel(modelIn))
+				
+		[At this stage 'Choose import File' form appears]
+		[On selecting file and clicking on Next]
+		vii. Action WizardFile is called (param: WizardFileModel)
+			a. csv File will be loaded
+			b. Partial View _WizardReview returned
+				(having param : GetWizardReviewModel(modelIn))
+			
+		[At this stage form 'list import review' will appear]
+		[On clicking submit]
+		viii. Action SaveFileList will be called.
+			a. File will be saved in this action with the help of session data
+			b. Partial View _WizardReview will be returned
+				(having param : GetWizardReviewModel(modelIn))
+				
+		ix. Action WizardReview will be called (param : WizardReviewModel model)
+			a. This action will display message in wizard.
+				A. whether list is created/updated successfully, Or
+				B. Any exception if occured
+		
+GetFileHeaders(it will load all the headers in the table)
+FileDataSample(This method will get all the all the records from the list)
+RefreshCSVHeaders(it will reset the csv list headers)

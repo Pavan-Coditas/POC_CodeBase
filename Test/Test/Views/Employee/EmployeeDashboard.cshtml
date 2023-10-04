@@ -1,0 +1,138 @@
+﻿<link rel="stylesheet" href="~/lib/kendo-ui-core/styles/kendo.common-bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/kendo-ui-core/styles/kendo.bootstrap.min.css" />
+<script src="https://kendo.cdn.telerik.com/2023.1.425/js/kendo.all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kendo-ui-core/2014.1.416/styles/kendo.common-bootstrap.min.css">
+<link href="https://kendo.cdn.telerik.com/themes/6.3.0/default/default-main.css" rel="stylesheet" />
+
+
+<div id="tablegrid">
+    <h3 style="text-align:center;background-color: #3445b4;color:white;margin-left:2rem;margin-top:0.5rem;margin-right:0.5rem">Dashboard</h3>
+    <div id="grid"></div>
+</div>
+
+
+<script>
+    $(function () {
+        loadGrid()
+    })
+
+    function loadGrid() {
+
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/Employee/GetAllEmployees",
+                    dataType: "json"
+                },
+                update: {
+                    url: "/Employee/EditEmp",
+                    dataType: "json",
+                    type: "POST"
+                },
+                destroy: {
+                    url: "/Employee/Delete",
+                    dataType: "json",
+                    type: "POST"
+
+                },
+                create: {
+                    url: "/Employee/CreateEmployee",
+                    dataType: "json",
+                    type: "POST"
+                }
+            },
+            pageSize: 5,
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { editable: false },
+                        name: {
+                            validation: {
+                                required: true,
+                                namevalidation: function (input) {
+                                    if (input.is("[name='name']") && input.val() != "") {
+                                        input.attr("data-namevalidation-msg", "Name should start with capital letter");
+                                        return /^[A-Z]/.test(input.val());
+                                    }
+
+                                    return true;
+                                }
+                            }
+                        },
+                        designation: { type: "string", validation: { required: true } },
+                        email: { type: "string", validation: { required: true } },
+                        phoneNumber: { type: "string", validation: { required: true, max: 10 } },
+                        dateOfBirth: { type: "string", validation: { required: true } },
+                        salary: { type: "number", validation: { required: true, min: 100 } },
+                        deptId: {
+                            type: "string",
+                            defaultValue: { name: "select", id: "" },
+                            template: "#= deptName(deptId) #"
+                        },
+                        genderId: { type: "string", defaultValue: { GenderType: "select", FormTypeId: "" } }
+                    }
+                }
+            }
+        });
+        function deptName(deptId) {
+            var department = dataSource.get(deptId);
+            return department ? department.name : "";
+        }
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            height: 550,
+            toolbar: ["create"],
+            sortable:true,
+            columns: [
+                { field: "name", title: "name" },
+                { field: "designation", title: "Designation" },
+                { field: "email", title: "Email ID" },
+                { field: "phoneNumber", title: "Phone Number" },
+                { field: "dateOfBirth", title: "Date of birth", template: "#= kendo.toString(kendo.parseDate(dateOfBirth), 'MM/dd/yyyy') #" },
+                { field: "salary", title: "Salary" },
+                { field: "deptId", title: "Department", editor: DepartmentTypeDropDownEditor },
+                { field: "genderId", title: "Gender", editor: GenderDropDownEditor },
+                { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }
+            ],
+            editable: "inline"
+        });
+
+        var GenderTypeData = new kendo.data.DataSource({
+            data: [
+                { GenderType: "Select", FormTypeId: "" },
+                { GenderType: "Male", FormTypeId: "10" },
+                { GenderType: "Female", FormTypeId: "11" },
+                { GenderType: "Other", FormTypeId: "12" }
+            ]
+        });
+
+        function GenderDropDownEditor(container, options) {
+            $('<input name="deptId" required data-text-field="GenderType" data-value-field="FormTypeId" data-bind="value:' + options.field + '"/>')
+                .appendTo(container)
+                .kendoDropDownList({
+                    autoBind: true,
+                    dataTextField: "GenderType",
+                    dataValueField: "FormTypeId",
+                    dataSource: GenderTypeData
+                });
+        }
+
+        function DepartmentTypeDropDownEditor(container, options) {
+            $('<input required name="' + options.field + '"/>')
+                .appendTo(container)
+                .kendoDropDownList({
+                    dataTextField: "name",
+                    dataValueField: "id",
+                    dataSource: {
+                        type: "json",
+                        transport: {
+                            read: "/Employee/GetAllDepartments"
+                        }
+                    }
+                });
+        }
+    }
+</script>

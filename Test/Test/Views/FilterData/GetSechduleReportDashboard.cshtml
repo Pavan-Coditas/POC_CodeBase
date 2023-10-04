@@ -1,0 +1,421 @@
+﻿<link rel="stylesheet" href="~/lib/kendo-ui-core/styles/kendo.common-bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/kendo-ui-core/styles/kendo.bootstrap.min.css" />
+<script src="https://kendo.cdn.telerik.com/2023.1.425/js/kendo.all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kendo-ui-core/2014.1.416/styles/kendo.common-bootstrap.min.css">
+<link href="https://kendo.cdn.telerik.com/themes/6.3.0/default/default-main.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.425/styles/kendo.common-bootstrap.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.425/styles/kendo.bootstrap.min.css" />
+<style>
+    .filter-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .filter {
+        margin-right: 1rem;
+    }
+
+    #filterButton {
+        width: 6rem;
+        position: relative;
+        top: 32px;
+    }
+
+    .custom-pager {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .pager-info {
+        margin-right: 10px;
+    }
+
+    .pager-size {
+        margin-right: 10px;
+        padding: 5px;
+    }
+
+    .pager-prev,
+    .pager-next {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    .pager-pages {
+        margin: 0 10px;
+    }
+
+    .current-page {
+        font-weight: bold;
+    }
+
+    .total-pages {
+        font-weight: normal;
+    }
+
+
+</style>
+<h3 style="text-align:center;background-color: #3445b4;color:white;margin-left:2rem;margin-top:0.5rem;margin-right:0.5rem">Schedule Report</h3>
+
+<div class="filter-container">
+    <div class="filter">
+        <label for="sourceIdsFilter">Source IDs:</label>
+        <input id="sourceIdsFilter" />
+    </div>
+    <div class="filter">
+        <label for="TaskName">Task Name:</label>
+        <input id="TaskName" />
+    </div>
+    <div class="filter">
+        <label for="EquipmentName">Equipment Name:</label>
+        <input id="EquipmentName" />
+    </div>
+    <div class="filter">
+        <label for="WorkcenterName">Workcenter Name:</label>
+        <input id="WorkcenterName" />
+    </div>
+    <div class="filter">
+        <input id="filterButton" type="button" value="Filter" />
+    </div>
+
+</div>
+
+
+
+<div id="tablegrid" style="padding:10px 0 0 0;">
+    <div id="grid"></div>
+</div>
+
+<div class="custom-pager">
+    <span class="pager-info">Items per page:</span>
+    <select class="pager-size">
+        <option value="5">5</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+    <button class="pager-prev">Previous</button>
+    <span class="pager-pages">
+        Page</span> <span class="current-page">1</span>
+    <button class="pager-next">Next</button>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        loadGrid();
+    });
+    var isFilterButtonClicked = 'no';
+    var currentPage = 1;
+    var pageSize=5;
+
+    function loadGrid(filters) {
+        var dataSource = null;
+        filters = {
+            PageSize: pageSize,
+            PageNumber: currentPage,
+            OrderBy: null
+        };
+        $.ajax({
+            url: "/FilterData/GetFilterData",
+            type: "GET",
+            dataType: "json",
+            data: filters,
+            success: function (response) {
+                var sourceIdsArray = response.sourceIds;
+                var TaskNameArray = response.taskNames;
+                var EquipmentArray = response.equipmentNames;
+                var WorkCenterNameArray = response.workCenterName;
+                dataSource = response.data;
+
+                $("#sourceIdsFilter").data("kendoDropDownList").setDataSource(sourceIdsArray);
+                $("#TaskName").data("kendoDropDownList").setDataSource(TaskNameArray);
+                $("#EquipmentName").data("kendoDropDownList").setDataSource(EquipmentArray);
+                $("#WorkcenterName").data("kendoDropDownList").setDataSource(WorkCenterNameArray);
+                $("#grid").data("kendoGrid").setDataSource(dataSource);
+            },
+            error: function (error) {
+                console.error("Error fetching data:", error);
+            }
+        });
+
+        $(document).ready(function () {
+            $("#sourceIdsFilter").kendoDropDownList({
+                dataTextField: "sourceTicketId",
+                dataValueField: "sourceTicketId",
+                optionLabel: "ALL",
+                change: applyFilters
+            });
+            $("#TaskName").kendoDropDownList({
+                optionLabel: 'ALL',
+                dataTextField: "taskName",
+                dataValueField: "taskName",
+                change: applyFilters
+            });
+            $("#EquipmentName").kendoDropDownList({
+                optionLabel: 'ALL',
+                dataTextField: "equipmentName",
+                dataValueField: "equipmentName",
+                change: applyFilters
+            });
+            $("#WorkcenterName").kendoDropDownList({
+                optionLabel: 'ALL',
+                dataTextField: "workcenterName",
+                dataValueField: "workcenterName",
+                change: applyFilters
+            });
+            $("#filterButton").on("click", function () {
+                isFilterButtonClicked='yes';
+                currentPage=1;
+                applyFilters(isFilterButtonClicked);
+            });
+            $(".pager-next").on("click", function () {
+                currentPage++; // Increment current page
+                isFilterButtonClicked = 'yes';
+                applyFilters(isFilterButtonClicked);
+            });
+            $(".pager-prev").on("click", function () {
+                if (currentPage > 1) {
+                    currentPage--; // Decrement current page
+                    isFilterButtonClicked = 'yes';
+                    applyFilters(isFilterButtonClicked);
+
+                }
+            });
+            $(".pager-size").on("change", function () {
+                pageSize = parseInt($(this).val()); // Update page size
+                currentPage = 1; // Reset current page to 1
+                isFilterButtonClicked = 'yes';
+                applyFilters(isFilterButtonClicked);
+            });
+        });
+
+        function applyFilters(isFilterButtonClicked) {
+            var filters = {
+                TicketNumbers: $("#sourceIdsFilter").data("kendoDropDownList").value(),
+                EquipmentName: $("#EquipmentName").data("kendoDropDownList").value(),
+                TaskName: $("#TaskName").data("kendoDropDownList").value(),
+                WorkcenterName: $("#WorkcenterName").data("kendoDropDownList").value(),
+                PageSize: pageSize,
+                PageNumber: currentPage,
+                OrderBy: null
+            };
+
+            $.ajax({
+                url: "/FilterData/GetFilterData",
+                type: "GET",
+                dataType: "json",
+                data: filters,
+                success: function (response) {
+                    var sourceIdsArray = response.sourceIds;
+                    var TaskNameArray = response.taskNames;
+                    var EquipmentArray = response.equipmentNames;
+                    var WorkCenterNameArray = response.workCenterName;
+
+                    $("#sourceIdsFilter").data("kendoDropDownList").setDataSource(sourceIdsArray);
+                    $("#TaskName").data("kendoDropDownList").setDataSource(TaskNameArray);
+                    $("#EquipmentName").data("kendoDropDownList").setDataSource(EquipmentArray);
+                    $("#WorkcenterName").data("kendoDropDownList").setDataSource(WorkCenterNameArray);
+
+                    if (isFilterButtonClicked==='yes') {
+                        dataSource = response.data;
+                        $("#grid").data("kendoGrid").setDataSource(dataSource);
+                        $(".current-page").text(currentPage);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+
+            $("#grid").data("kendoGrid").dataSource.read(filters);
+        }
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            height: 400,
+            resizable: true,
+            serverPaging: true,
+            noRecords: true,
+            messages: {
+                noRecords: "There is no data on current page"
+            },
+            sort: function (e) {
+                var sortColumnName = "";
+                if (e.sort.dir == 'asc') {
+                    sortColumnName = "+" + e.sort.field;
+                    applySorting(sortColumnName);
+                } else if (e.sort.dir == 'desc') {
+                    sortColumnName = "-" + e.sort.field;
+                    applySorting(sortColumnName);
+                }
+            },
+            serverSorting: true,
+            sortable: true,
+            columns: [
+                {
+                    field: "sourceTicketId",
+                    title: "Source IDs",
+                    width: 150,
+
+                },{
+                    field: "taskName",
+                    title: "Task Name",
+                    width: 150,
+                }, {
+                    field: "equipmentName",
+                    title: "EquipmentName",
+                    width: 150,
+
+                }, {
+                    field: "workCenterName",
+                    title: "WorkCenterName",
+                    width: 150,
+
+                }, {
+                    field: "changeoverCount",
+                    title: "ChangeOverCount",
+                    width: 150,
+
+                },{
+                    field: "changeoverDescription",
+                    title: "ChangeoverDescription",
+                    width: 150,
+
+                },{
+                    field: "customerName",
+                    title: "CustomerName",
+                    width: 150,
+
+                },{
+                    field: "priceMode",
+                    title: "PriceMode",
+                    width: 150,
+
+                },{
+                    field: "generalDescription",
+                    title: "GeneralDescription",
+                    width: 150,
+
+                },{
+                    field: "displayName",
+                    title: "DisplayName",
+                    width: 150,
+
+                }, {
+                    field: "calcCoreWidth",
+                    title: "CalcCoreWidth",
+                    width: 150,
+
+                }, {
+                    field: "calcFinishedRollLength",
+                    title: "CalcFinishedRollLength",
+                    width: 150,
+
+                }, {
+                    field: "calcLinearLength",
+                    title: "CalcLinearLength",
+                    width: 150,
+
+                }, {
+                    field: "calcNumStops",
+                    title: "CalcNumStops",
+                    width: 150,
+
+                }, {
+                    field: "endUserName",
+                    title: "EndUserName",
+                    width: 150,
+
+                }, {
+                    field: "isBackSidePrinted",
+                    title: "IsBackSidePrinted",
+                    width: 150,
+
+                }, {
+                    field: "stockReceived",
+                    title: "StockReceived",
+                    width: 150,
+
+                }, {
+                    field: "dueOnSiteDate",
+                    title: "DueOnSiteDate",
+                    width: 150,
+
+                },
+                {
+                    field: "shippingStatus",
+                    title: "ShippingStatus",
+                    width: 150,
+
+                }, {
+                    field: "shippingCity",
+                    title: "ShippingCity",
+                    width: 150,
+
+                }, {
+                    field: "description",
+                    title: "Description",
+                    width: 150,
+
+                }, {
+                    field: "plateComplete",
+                    title: "PlateComplete",
+                    width: 150,
+
+                }, {
+                    field: "stock2Width",
+                    title: "Stock2Width",
+                    width: 150,
+
+                }, {
+                    field: "equipment1Workcenter",
+                    title: "Equipment1Workcenter",
+                    width: 150,
+
+                }, {
+                    field: "equipment2Workcenter",
+                    title: "Equipment2Workcenter",
+                    width: 150,
+
+                }, {
+                    field: "toolingShape",
+                    title: "ToolingShape",
+                    width: 150,
+                }
+            ],
+            editable: "inline"
+        });
+
+        function applySorting(sortColumnName) {
+            var filters = {
+                TicketNumbers: $("#sourceIdsFilter").data("kendoDropDownList").value(),
+                EquipmentName: $("#EquipmentName").data("kendoDropDownList").value(),
+                TaskName: $("#TaskName").data("kendoDropDownList").value(),
+                WorkcenterName: $("#WorkcenterName").data("kendoDropDownList").value(),
+                PageSize: pageSize,
+                PageNumber: currentPage,
+                OrderBy: sortColumnName
+            };
+
+            $.ajax({
+                url: "/FilterData/GetFilterData",
+                type: "GET",
+                dataType: "json",
+                data: filters,
+                success: function (response) {
+                    var dataSource=response.data;
+                },
+                error: function (error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+            $("#grid").data("kendoGrid").dataSource.read(filters);
+        }
+    }
+</script>

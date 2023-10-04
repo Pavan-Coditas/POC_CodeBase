@@ -1,0 +1,1241 @@
+Procedure for ConnectAndSell SADEV 10x Setup on local
+
+Steps
+A. Pre-requisites
+B. Database Restoration
+C. Application Installation
+D. Cloning the projects
+E. Building Projects
+F. Services Installation
+G. Hosting on IIS
+H. Changes required for basic functionality
+I. Common Errors
+
+Note: Run all mentioned applications in this procedure as Administrator to avoid unauthorized warning.
+
+[A. Pre-requisites]
+-> Download the following
+	-> 10X-Db 
+	-> Redis
+	-> ERLang/OTP
+	-> RabbitMQ
+	
+(url: https://drive.google.com/drive/folders/1-PjfZ8uKYw8JNndPxnZ_ozVhMHlF4bMP?usp=sharing)
+Note: May require access permission.
+
+[B. Database Restoration]
+-> Restore the database
+	-> Open Microsoft SQL Server Management Studio
+	-> Connect to Server with creds
+	-> Right click on the Databases (In Object Explorer)
+		-> Restore Database
+		-> Select Device option
+		-> Browse & point to 10X-Db bak file
+		-> After Selecting the backup file Click On OK
+		[May take few minutes for database to be restored]
+Note: Assuming Microsoft SQL Server Management Studio has been already installed.
+
+[C. Application Installation]
+-> Install Redis with default options
+-> Install ERLang/OTP with default options
+-> Install RabbitMQ with default options
+Note: Install ERLang/OTP before RabbitMQ to avoid Installation failure warning.
+
+[D. Cloning the projects]
+-> Go to https://github.com/ConnectAndSell/ with coditas mail id
+-> Create usename like first name + initial of last name - coditas
+	ex. first name - sachin
+		last name - sangekar
+		user name will be - sachins-coditas
+-> Search for the below projects one by one
+	open them & copy the clone url
+	-> ConnectAndSell-WCF
+		(branch: 10x_develop) 
+	-> Cast-a-Net-WCF
+		(branch: 10x_develop) 
+	-> ConnectAndSellState
+		(branch: 10x_develop) 
+	-> CASLogConsumer
+		(branch: master)
+	-> CASThreadsService (Optional)
+		(branch: master)
+	-> CASCommonUpdater(Optional)
+		(branch: master)
+		
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/ConnectAndSell-WCF.git
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/Cast-a-Net-WCF.git
+		git clone --branch master_signalr https://github.com/ConnectAndSell/ConnectAndSellState.git
+		git clone --branch master https://github.com/ConnectAndSell/CASLogConsumer.git
+		git clone --branch master https://github.com/ConnectAndSell/CASThreadsService.git
+		git clone --branch master https://github.com/ConnectAndSell/CASCommonUpdater.git
+		
+-> In C drive, create a folder for ConnectAndSell-10x
+-> Inside ConnectAndSell-10x folder for each project
+	right click on blank area, click on git clone in appeared menu
+-> Paste git url in URL field for each project (one at a time)
+-> Before clicking on Ok
+	-> type respective branch name in Branch field
+-> Click on Ok
+Note: Github access may require for cloning.
+Note: Assuming Tortoise Git or any other git tool has been already installed for cloning.
+
+[E. Building Projects]
+-> Changes Required in ConnectAndSell-WCF
+	[ConnectAndSell.Web/Shared/CompanySettingMgr.cs: For ILOg Error]
+	-> Change Method parameters type ILog to ConnectAndSell.Common.ILOg
+	-> Replace the Web.config file in ConnectAndSell.Web with attached one
+		and update the connection string for your local system
+-> Changes Required in CASStateService
+	[CASStateService/App.confing]
+		-> Set dns value = "localhost"
+		-> Set base address = "net.tcp://localhost:444/"
+	[For signing error]
+		-> Right Click on StateManagement > Properties
+		-> Signing Tab : Sign the ClickOnce Mainfest [uncheck it]
+	-> Paste instances.json, state_instances.json
+		inside ConnectAndSellState\CASStateService
+-> Changes Required in Cast-A-Net-WCF
+	[Cast-A-Net-WCF\Agent\app.config]
+		-> Set <add key="TargetEngineAddress" value="localhost">
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> Set <add key="ClientSettingsProvider.ServiceUri" value="443"/>
+		-> Set <add key ="StateURL" value ="net.tcp://35.197.61.86:443/Service1"/>
+	[Cast-A-Net-WCF\AppCommon\Globals.cs]
+		-> Set TargetEngineAddress = "localhost" in case "ENGINE1"
+		-> Comment out the 'check the app's version' code block
+	[Cast-A-Net\AppCommon\Properties\Setting.Designer.cs]
+		-> Change "SALES" to "Engine1" as written below
+		[global::System.Configuration.DefaultSettingValueAttribute("Engine1")]
+	[Cast-A-Net-WCF\Campaign\app.config]
+		-> set <add key="TargetEngineAddress" value="localhost"/>
+		-> Set <add key="TargetEnginePort" value="456"/>
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.Designer.cs]
+		-> update connection string 
+			[global::System.Configuration.DefaultSettingValueAttribute
+			("Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;")]
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.settings]
+		-> Search for for DesignTimeValue Profile and Value Profile ============ Such names are not exist
+			-> update the connection strings in them	
+				(Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False)
+	[Cast-A-Net-WCF\CasReportsImpl\app.config]
+		-> Update Connection String
+			<add name="CasReportsImpl.Properties.Settings.CastanetConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;" providerName="System.Data.SqlClient" />
+	[Cast-A-Net-WCF\Data Access Layer\DAL.cs]
+		-> Update connection string
+			-> private static string _connectionString = "Server=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Max Pool Size=500;";
+	[Cast-A-Net-WCF\Data Access Layer\app.config]
+		-> Update connection string
+			<add name="engineConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\Direct\app.config]
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> C:\ConnectAndSell-10x\Cast-A-Net-WCF\Direct\app.config
+	[Cast-A-Net-WCF\HostWCFEngine\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <dns value="localhost" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		(dns value, add baseAddress can be found more than once, update all of them)
+		-> Update Connection String
+			-> <add name="CasReportsImpl.Properties.Settings.CastanetConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"
+				providerName="System.Data.SqlClient" />
+			-> <add name="engineConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\HostWCFEngine\ProjectInstaller.Designer.cs]
+		-> Set 
+			-> this.serviceInstaller1.ServiceName = "Cast-A-Net-WCF_10x";
+            -> this.serviceInstaller1.DisplayName = "EngineServiceWCF_10x";
+	[Cast-A-Net-WCF\testClient\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		-> Update connection string
+			<add name="engineConnectionString" 
+			connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+			
+[F. Services Installation]
+-> Make sure following projects have been built successfully
+	-> Cast-a-Net-WCF
+	-> ConnectAndSellState
+	-> CASLogConsumer
+-> Success built of project will lead to create exe file in Debug folder of the project
+-> Run the 64bit version of InstallUtil.exe to add it as a service
+-> Open Command Prompt as Admin
+	=> For EngineServiceWCF_10x, run commands:
+		-> cd C:\ConnectAndSell-10x\Cast-A-Net-WCF\HostWCFEngine\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe EngineServiceWCF.exe
+	=> For CASStateService, run commands:
+		-> cd C:\ConnectAndSell-10x\ConnectAndSellState\CASStateService\bin\x64\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASStateService.exe
+	=> For CASLogConsumer, run commands:
+		-> cd C:\ConnectAndSell-10x\CASLogConsumer\CASLogConsumer\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASLogConsumer.exe
+Note:  Incase Specified Path Not Found error, find and use service exe file path in your local
+
+[G. Hosting on IIS]
+-> Make Sure ConnectAndSell-WCF has been built successfully
+-> Search for IIS from Start Menu, open IIS Manager
+-> Expand system directory in Connections Menu (left hand side)
+-> Expand Sites
+-> Click on Default Web Site
+-> In Actions Menu (right hand side), Click on Basic Settings
+-> In appeared popup of Edit Site
+	-> Choose .NET version in Application Pool
+	-> In Physical path, point to relative path
+		-> C:\ConnectAndSell-10x\ConnectAndSell-WCF\ConnectAndSell.Web
+-> Click on OK
+-> Open project ConnectAndSell-WCF in Visual Studio
+-> In Solution Explorer, right click on ConnectAndSell.Web
+-> Click on properties
+-> Open Web tab in properties
+-> Select Local IIS in Servers
+-> Paste http://localhost/ConnectAndSell in Project Url
+	and click on Create Virtual Directory
+-> Again in Solution Explorer, right click on ConnectAndSell.Web
+-> Click on Set as Startup Project
+
+[H. Changes required for basic functionality - Queries to be run on DB]
+-> Error: Invalid column name 'IsPasswordReset'
+	-> ALTER TABLE cas_user
+		ADD IsPasswordReset bit  NOT NULL DEFAULT ((0));
+-> Error: Invalid column name 'OTP'
+	-> ALTER TABLE cas_user
+		ADD OTP nvarchar(7) NULL;
+-> For enabling/activate user on local
+	-> UPDATE t_User
+		SET loginemailid='akash.goswami@coditas.com'
+		WHERE LoginID='dkumar';
+	[Hint: Find UserId of user in t_User]
+	-> UPDATE cas_User
+		SET IsPasswordReset=1 
+		WHERE UserId=1749;
+-> Invalid column name 'SessionReportDL'.
+	-> INSERT INTO cas_LightningParameter VALUES('CompanyBasedEngineAssignment','True');
+		ALTER table t_Company ADD SessionReportDL VARCHAR(MAX);
+-> 	Invalid column name 'EngineIdentifier'
+	-> UPDATE t_Company SET EngineIdentifier = '';
+		ALTER TABLE t_company ADD EngineIdentifier VARCHAR(MAX);
+-> IsFollowupQuickListEnabled
+	-> Run Alter Script: Alter944
+
+-> Cannot Connect to Engine
+	-> OPEN Command Prompt as admin
+		-> Execute: netsh http add urlacl url=http://+:4444/ user=Everyone
+		(restart services, WINDOWS may need to be restarted manually)
+
+
+-> Invalid column name 'ContactTel3'
+	Invalid column name 'ContactExt3'
+	-> ALTER TABLE t_Call ADD ContactTel3 varchar(40);
+		ALTER TABLE t_Call ADD ContactExt3 varchar(40);
+		ALTER TABLE t_Call ADD IsDeletedInCRM bit;
+		ALTER TABLE t_lead ADD ContactTel3 varchar(40);
+		ALTER TABLE t_lead ADD ContactExt3 varchar(40);
+		ALTER TABLE t_lead ADD IsDeletedInCRM bit;
+-> Invalid column name 'UserId'
+	-> ALTER TABLE t_Call
+		ADD UserId int;
+-> Invalid column name 'CampaignUserId'
+	-> ALTER TABLE t_Call
+		ADD CampaignUserId	int;
+-> Invalid column name 'ClientId'
+	-> ALTER TABLE t_Call
+		ADD ClientId int;
+-> Invalid column name 'CallType'
+	-> ALTER TABLE t_Call
+		ADD CallType tinyint;
+-> Invalid column name 'SessionType'
+	-> ALTER TABLE t_Call
+		ADD SessionType	tinyint;
+-> Invalid column name 'DispositionId'
+	-> ALTER TABLE t_Call
+		ADD DispositionId int;
+-> Invalid column name 'IsReferral'
+	-> ALTER TABLE t_Call
+		ADD IsReferral tinyint;
+-> Invalid column name 'IsTransfer'
+	-> ALTER TABLE t_Call
+		ADD IsTransfer tinyint;
+-> Invalid column name 'AcknowledgedStatusFilterMissing'.
+	Invalid column name 'AcknowledgedBy'.
+	-> Run Alter Script: Alter1069
+-> Invalid column name 'SequenceId'.
+	Invalid column name 'OutreachListRefreshDate'.
+	-> Run Alter Script: Alter1078 
+-> Load CallLists
+	-> Run Queries
+		-> ALTER TABLE cas_Contact ADD IsConnected INT NOT NULL DEFAULT '0';
+		-> Alter table cas_contact add Phone3 varchar(50) null;
+	-> Run Alter Script
+		-> Alter997		
+		-> Alter1054		
+		-> Alter1058
+		-> Alter1195 - Exception: Invalid column name 'SFPbFlag'.		
+		-> Alter1080 and Alter814 - if you get error while loading list
+		
+All alter scripts are present at C:\ConnectAndSell-10x\ConnectAndSell-WCF\externals\Database
+Note: If you face any issues related to DB tables and Columns refer doc
+https://docs.google.com/spreadsheets/d/1PfAHmFcbx6Bj47MEiNkCc2qTcVIy2lPfiH8irSgd12c/edit#gid=0
+		
+[Create/Edit CallLists]
+-> Create a folder
+	-> GoogleCSVAuthFile in C:\
+	-> Copy csvauth.json in GoogleCSVAuthFile
+-> Run Queries
+	-> ALTER TABLE cas_Note ADD IsDualConsent BIT NOT NULL DEFAULT 0;
+	-> BEGIN
+			ALTER TABLE [dbo].[cas_Note] 
+			ADD [CallSentiment] NVARCHAR(1000)	
+		END
+-> For Calling
+	-> Set TargetEngineAddress = "localhost" inside Switch "ENGINE1" case 
+		in AppCommon\Global.cs in Cast-a-net Project
+	-> Run following query in the database: 
+		-> update t_AsteriskRef
+			set Configuration='Engine1', Address = '10.40.1.15' 
+			where ID=1
+	-> Build Cast-a-Net
+Note: Stop the service before building the respective project.
+[For getting Logs]
+-> For CAS Logs, Create a folder in C:, NewLogs
+-> StateLogs Folder is already present in C: for State Logs
+-> Cast-A-Net Engine logs can be seen in C:\Cast-A-Net\
+
+[I. Common Errors]
+-> Could not load assembly 'System.Web.Helpers'
+	-> Right click on ConnectAndSell.Web (In Solution Explorer)
+		-> Add > Reference > Browse
+			C:\ConnectAndSell\ConnectAndSell-WCF\ConnectAndSell.Web\bin\
+			(select: System.Web.Helpers.dll)
+			(Add reference)
+
+
+[List Create, Edit, Load and calling to leads from callLists should be functioning now in Local ConnectAndSell WebApp]Procedure for ConnectAndSell SADEV 10x Setup on local
+
+Steps
+A. Pre-requisites
+B. Database Restoration
+C. Application Installation
+D. Cloning the projects
+E. Building Projects
+F. Services Installation
+G. Hosting on IIS
+H. Changes required for basic functionality
+I. Common Errors
+
+Note: Run all mentioned applications in this procedure as Administrator to avoid unauthorized warning.
+
+[A. Pre-requisites]
+-> Download the following
+	-> 10X-Db 
+	-> Redis
+	-> ERLang/OTP
+	-> RabbitMQ
+	
+(url: https://drive.google.com/drive/folders/1-PjfZ8uKYw8JNndPxnZ_ozVhMHlF4bMP?usp=sharing)
+Note: May require access permission.
+
+[B. Database Restoration]
+-> Restore the database
+	-> Open Microsoft SQL Server Management Studio
+	-> Connect to Server with creds
+	-> Right click on the Databases (In Object Explorer)
+		-> Restore Database
+		-> Select Device option
+		-> Browse & point to 10X-Db bak file
+		-> After Selecting the backup file Click On OK
+		[May take few minutes for database to be restored]
+Note: Assuming Microsoft SQL Server Management Studio has been already installed.
+
+[C. Application Installation]
+-> Install Redis with default options
+-> Install ERLang/OTP with default options
+-> Install RabbitMQ with default options
+Note: Install ERLang/OTP before RabbitMQ to avoid Installation failure warning.
+
+[D. Cloning the projects]
+-> Go to https://github.com/ConnectAndSell/ with coditas mail id
+-> Create usename like first name + initial of last name - coditas
+	ex. first name - sachin
+		last name - sangekar
+		user name will be - sachins-coditas
+-> Search for the below projects one by one
+	open them & copy the clone url
+	-> ConnectAndSell-WCF
+		(branch: 10x_develop) 
+	-> Cast-a-Net-WCF
+		(branch: 10x_develop) 
+	-> ConnectAndSellState
+		(branch: 10x_develop) 
+	-> CASLogConsumer
+		(branch: master)
+	-> CASThreadsService (Optional)
+		(branch: master)
+	-> CASCommonUpdater(Optional)
+		(branch: master)
+		
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/ConnectAndSell-WCF.git
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/Cast-a-Net-WCF.git
+		git clone --branch master_signalr https://github.com/ConnectAndSell/ConnectAndSellState.git
+		git clone --branch master https://github.com/ConnectAndSell/CASLogConsumer.git
+		git clone --branch master https://github.com/ConnectAndSell/CASThreadsService.git
+		git clone --branch master https://github.com/ConnectAndSell/CASCommonUpdater.git
+		
+-> In C drive, create a folder for ConnectAndSell-10x
+-> Inside ConnectAndSell-10x folder for each project
+	right click on blank area, click on git clone in appeared menu
+-> Paste git url in URL field for each project (one at a time)
+-> Before clicking on Ok
+	-> type respective branch name in Branch field
+-> Click on Ok
+Note: Github access may require for cloning.
+Note: Assuming Tortoise Git or any other git tool has been already installed for cloning.
+
+[E. Building Projects]
+-> Changes Required in ConnectAndSell-WCF
+	[ConnectAndSell.Web/Shared/CompanySettingMgr.cs: For ILOg Error]
+	-> Change Method parameters type ILog to ConnectAndSell.Common.ILOg
+	-> Replace the Web.config file in ConnectAndSell.Web with attached one
+		and update the connection string for your local system
+-> Changes Required in CASStateService
+	[CASStateService/App.confing]
+		-> Set dns value = "localhost"
+		-> Set base address = "net.tcp://localhost:444/"
+	[For signing error]
+		-> Right Click on StateManagement > Properties
+		-> Signing Tab : Sign the ClickOnce Mainfest [uncheck it]
+	-> Paste instances.json, state_instances.json
+		inside ConnectAndSellState\CASStateService
+-> Changes Required in Cast-A-Net-WCF
+	[Cast-A-Net-WCF\Agent\app.config]
+		-> Set <add key="TargetEngineAddress" value="localhost">
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> Set <add key="ClientSettingsProvider.ServiceUri" value="443"/>
+		-> Set <add key ="StateURL" value ="net.tcp://35.197.61.86:443/Service1"/>
+	[Cast-A-Net-WCF\AppCommon\Globals.cs]
+		-> Set TargetEngineAddress = "localhost" in case "ENGINE1"
+		-> Comment out the 'check the app's version' code block
+	[Cast-A-Net\AppCommon\Properties\Setting.Designer.cs]
+		-> Change "SALES" to "Engine1" as written below
+		[global::System.Configuration.DefaultSettingValueAttribute("Engine1")]
+	[Cast-A-Net-WCF\Campaign\app.config]
+		-> set <add key="TargetEngineAddress" value="localhost"/>
+		-> Set <add key="TargetEnginePort" value="456"/>
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.Designer.cs]
+		-> update connection string 
+			[global::System.Configuration.DefaultSettingValueAttribute
+			("Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;")]
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.settings]
+		-> Search for for DesignTimeValue Profile and Value Profile ============ Such names are not exist
+			-> update the connection strings in them	
+				(Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False)
+	[Cast-A-Net-WCF\CasReportsImpl\app.config]
+		-> Update Connection String
+			<add name="CasReportsImpl.Properties.Settings.CastanetConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;" providerName="System.Data.SqlClient" />
+	[Cast-A-Net-WCF\Data Access Layer\DAL.cs]
+		-> Update connection string
+			-> private static string _connectionString = "Server=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Max Pool Size=500;";
+	[Cast-A-Net-WCF\Data Access Layer\app.config]
+		-> Update connection string
+			<add name="engineConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\Direct\app.config]
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> C:\ConnectAndSell-10x\Cast-A-Net-WCF\Direct\app.config
+	[Cast-A-Net-WCF\HostWCFEngine\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <dns value="localhost" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		(dns value, add baseAddress can be found more than once, update all of them)
+		-> Update Connection String
+			-> <add name="CasReportsImpl.Properties.Settings.CastanetConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"
+				providerName="System.Data.SqlClient" />
+			-> <add name="engineConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\HostWCFEngine\ProjectInstaller.Designer.cs]
+		-> Set 
+			-> this.serviceInstaller1.ServiceName = "Cast-A-Net-WCF_10x";
+            -> this.serviceInstaller1.DisplayName = "EngineServiceWCF_10x";
+	[Cast-A-Net-WCF\testClient\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		-> Update connection string
+			<add name="engineConnectionString" 
+			connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+			
+[F. Services Installation]
+-> Make sure following projects have been built successfully
+	-> Cast-a-Net-WCF
+	-> ConnectAndSellState
+	-> CASLogConsumer
+-> Success built of project will lead to create exe file in Debug folder of the project
+-> Run the 64bit version of InstallUtil.exe to add it as a service
+-> Open Command Prompt as Admin
+	=> For EngineServiceWCF_10x, run commands:
+		-> cd C:\ConnectAndSell-10x\Cast-A-Net-WCF\HostWCFEngine\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe EngineServiceWCF.exe
+	=> For CASStateService, run commands:
+		-> cd C:\ConnectAndSell-10x\ConnectAndSellState\CASStateService\bin\x64\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASStateService.exe
+	=> For CASLogConsumer, run commands:
+		-> cd C:\ConnectAndSell-10x\CASLogConsumer\CASLogConsumer\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASLogConsumer.exe
+Note:  Incase Specified Path Not Found error, find and use service exe file path in your local
+
+[G. Hosting on IIS]
+-> Make Sure ConnectAndSell-WCF has been built successfully
+-> Search for IIS from Start Menu, open IIS Manager
+-> Expand system directory in Connections Menu (left hand side)
+-> Expand Sites
+-> Click on Default Web Site
+-> In Actions Menu (right hand side), Click on Basic Settings
+-> In appeared popup of Edit Site
+	-> Choose .NET version in Application Pool
+	-> In Physical path, point to relative path
+		-> C:\ConnectAndSell-10x\ConnectAndSell-WCF\ConnectAndSell.Web
+-> Click on OK
+-> Open project ConnectAndSell-WCF in Visual Studio
+-> In Solution Explorer, right click on ConnectAndSell.Web
+-> Click on properties
+-> Open Web tab in properties
+-> Select Local IIS in Servers
+-> Paste http://localhost/ConnectAndSell in Project Url
+	and click on Create Virtual Directory
+-> Again in Solution Explorer, right click on ConnectAndSell.Web
+-> Click on Set as Startup Project
+
+[H. Changes required for basic functionality - Queries to be run on DB]
+-> Error: Invalid column name 'IsPasswordReset'
+	-> ALTER TABLE cas_user
+		ADD IsPasswordReset bit  NOT NULL DEFAULT ((0));
+-> Error: Invalid column name 'OTP'
+	-> ALTER TABLE cas_user
+		ADD OTP nvarchar(7) NULL;
+-> For enabling/activate user on local
+	-> UPDATE t_User
+		SET loginemailid='akash.goswami@coditas.com'
+		WHERE LoginID='dkumar';
+	[Hint: Find UserId of user in t_User]
+	-> UPDATE cas_User
+		SET IsPasswordReset=1 
+		WHERE UserId=1749;
+-> Invalid column name 'SessionReportDL'.
+	-> INSERT INTO cas_LightningParameter VALUES('CompanyBasedEngineAssignment','True');
+		ALTER table t_Company ADD SessionReportDL VARCHAR(MAX);
+-> 	Invalid column name 'EngineIdentifier'
+	-> UPDATE t_Company SET EngineIdentifier = '';
+		ALTER TABLE t_company ADD EngineIdentifier VARCHAR(MAX);
+-> IsFollowupQuickListEnabled
+	-> Run Alter Script: Alter944
+
+-> Cannot Connect to Engine
+	-> OPEN Command Prompt as admin
+		-> Execute: netsh http add urlacl url=http://+:4444/ user=Everyone
+		(restart services, WINDOWS may need to be restarted manually)
+
+
+-> Invalid column name 'ContactTel3'
+	Invalid column name 'ContactExt3'
+	-> ALTER TABLE t_Call ADD ContactTel3 varchar(40);
+		ALTER TABLE t_Call ADD ContactExt3 varchar(40);
+		ALTER TABLE t_Call ADD IsDeletedInCRM bit;
+		ALTER TABLE t_lead ADD ContactTel3 varchar(40);
+		ALTER TABLE t_lead ADD ContactExt3 varchar(40);
+		ALTER TABLE t_lead ADD IsDeletedInCRM bit;
+-> Invalid column name 'UserId'
+	-> ALTER TABLE t_Call
+		ADD UserId int;
+-> Invalid column name 'CampaignUserId'
+	-> ALTER TABLE t_Call
+		ADD CampaignUserId	int;
+-> Invalid column name 'ClientId'
+	-> ALTER TABLE t_Call
+		ADD ClientId int;
+-> Invalid column name 'CallType'
+	-> ALTER TABLE t_Call
+		ADD CallType tinyint;
+-> Invalid column name 'SessionType'
+	-> ALTER TABLE t_Call
+		ADD SessionType	tinyint;
+-> Invalid column name 'DispositionId'
+	-> ALTER TABLE t_Call
+		ADD DispositionId int;
+-> Invalid column name 'IsReferral'
+	-> ALTER TABLE t_Call
+		ADD IsReferral tinyint;
+-> Invalid column name 'IsTransfer'
+	-> ALTER TABLE t_Call
+		ADD IsTransfer tinyint;
+-> Invalid column name 'AcknowledgedStatusFilterMissing'.
+	Invalid column name 'AcknowledgedBy'.
+	-> Run Alter Script: Alter1069
+-> Invalid column name 'SequenceId'.
+	Invalid column name 'OutreachListRefreshDate'.
+	-> Run Alter Script: Alter1078 
+-> Load CallLists
+	-> Run Queries
+		-> ALTER TABLE cas_Contact ADD IsConnected INT NOT NULL DEFAULT '0';
+		-> Alter table cas_contact add Phone3 varchar(50) null;
+	-> Run Alter Script
+		-> Alter997		
+		-> Alter1054		
+		-> Alter1058
+		-> Alter1195 - Exception: Invalid column name 'SFPbFlag'.		
+		-> Alter1080 and Alter814 - if you get error while loading list
+		
+All alter scripts are present at C:\ConnectAndSell-10x\ConnectAndSell-WCF\externals\Database
+Note: If you face any issues related to DB tables and Columns refer doc
+https://docs.google.com/spreadsheets/d/1PfAHmFcbx6Bj47MEiNkCc2qTcVIy2lPfiH8irSgd12c/edit#gid=0
+		
+[Create/Edit CallLists]
+-> Create a folder
+	-> GoogleCSVAuthFile in C:\
+	-> Copy csvauth.json in GoogleCSVAuthFile
+-> Run Queries
+	-> ALTER TABLE cas_Note ADD IsDualConsent BIT NOT NULL DEFAULT 0;
+	-> BEGIN
+			ALTER TABLE [dbo].[cas_Note] 
+			ADD [CallSentiment] NVARCHAR(1000)	
+		END
+-> For Calling
+	-> Set TargetEngineAddress = "localhost" inside Switch "ENGINE1" case 
+		in AppCommon\Global.cs in Cast-a-net Project
+	-> Run following query in the database: 
+		-> update t_AsteriskRef
+			set Configuration='Engine1', Address = '10.40.1.15' 
+			where ID=1
+	-> Build Cast-a-Net
+Note: Stop the service before building the respective project.
+[For getting Logs]
+-> For CAS Logs, Create a folder in C:, NewLogs
+-> StateLogs Folder is already present in C: for State Logs
+-> Cast-A-Net Engine logs can be seen in C:\Cast-A-Net\
+
+[I. Common Errors]
+-> Could not load assembly 'System.Web.Helpers'
+	-> Right click on ConnectAndSell.Web (In Solution Explorer)
+		-> Add > Reference > Browse
+			C:\ConnectAndSell\ConnectAndSell-WCF\ConnectAndSell.Web\bin\
+			(select: System.Web.Helpers.dll)
+			(Add reference)
+
+
+[List Create, Edit, Load and calling to leads from callLists should be functioning now in Local ConnectAndSell WebApp]Procedure for ConnectAndSell SADEV 10x Setup on local
+
+Steps
+A. Pre-requisites
+B. Database Restoration
+C. Application Installation
+D. Cloning the projects
+E. Building Projects
+F. Services Installation
+G. Hosting on IIS
+H. Changes required for basic functionality
+I. Common Errors
+
+Note: Run all mentioned applications in this procedure as Administrator to avoid unauthorized warning.
+
+[A. Pre-requisites]
+-> Download the following
+	-> 10X-Db 
+	-> Redis
+	-> ERLang/OTP
+	-> RabbitMQ
+	
+(url: https://drive.google.com/drive/folders/1-PjfZ8uKYw8JNndPxnZ_ozVhMHlF4bMP?usp=sharing)
+Note: May require access permission.
+
+[B. Database Restoration]
+-> Restore the database
+	-> Open Microsoft SQL Server Management Studio
+	-> Connect to Server with creds
+	-> Right click on the Databases (In Object Explorer)
+		-> Restore Database
+		-> Select Device option
+		-> Browse & point to 10X-Db bak file
+		-> After Selecting the backup file Click On OK
+		[May take few minutes for database to be restored]
+Note: Assuming Microsoft SQL Server Management Studio has been already installed.
+
+[C. Application Installation]
+-> Install Redis with default options
+-> Install ERLang/OTP with default options
+-> Install RabbitMQ with default options
+Note: Install ERLang/OTP before RabbitMQ to avoid Installation failure warning.
+
+[D. Cloning the projects]
+-> Go to https://github.com/ConnectAndSell/ with coditas mail id
+-> Create usename like first name + initial of last name - coditas
+	ex. first name - sachin
+		last name - sangekar
+		user name will be - sachins-coditas
+-> Search for the below projects one by one
+	open them & copy the clone url
+	-> ConnectAndSell-WCF
+		(branch: 10x_develop) 
+	-> Cast-a-Net-WCF
+		(branch: 10x_develop) 
+	-> ConnectAndSellState
+		(branch: 10x_develop) 
+	-> CASLogConsumer
+		(branch: master)
+	-> CASThreadsService (Optional)
+		(branch: master)
+	-> CASCommonUpdater(Optional)
+		(branch: master)
+		
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/ConnectAndSell-WCF.git
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/Cast-a-Net-WCF.git
+		git clone --branch master_signalr https://github.com/ConnectAndSell/ConnectAndSellState.git
+		git clone --branch master https://github.com/ConnectAndSell/CASLogConsumer.git
+		git clone --branch master https://github.com/ConnectAndSell/CASThreadsService.git
+		git clone --branch master https://github.com/ConnectAndSell/CASCommonUpdater.git
+		
+-> In C drive, create a folder for ConnectAndSell-10x
+-> Inside ConnectAndSell-10x folder for each project
+	right click on blank area, click on git clone in appeared menu
+-> Paste git url in URL field for each project (one at a time)
+-> Before clicking on Ok
+	-> type respective branch name in Branch field
+-> Click on Ok
+Note: Github access may require for cloning.
+Note: Assuming Tortoise Git or any other git tool has been already installed for cloning.
+
+[E. Building Projects]
+-> Changes Required in ConnectAndSell-WCF
+	[ConnectAndSell.Web/Shared/CompanySettingMgr.cs: For ILOg Error]
+	-> Change Method parameters type ILog to ConnectAndSell.Common.ILOg
+	-> Replace the Web.config file in ConnectAndSell.Web with attached one
+		and update the connection string for your local system
+-> Changes Required in CASStateService
+	[CASStateService/App.confing]
+		-> Set dns value = "localhost"
+		-> Set base address = "net.tcp://localhost:444/"
+	[For signing error]
+		-> Right Click on StateManagement > Properties
+		-> Signing Tab : Sign the ClickOnce Mainfest [uncheck it]
+	-> Paste instances.json, state_instances.json
+		inside ConnectAndSellState\CASStateService
+-> Changes Required in Cast-A-Net-WCF
+	[Cast-A-Net-WCF\Agent\app.config]
+		-> Set <add key="TargetEngineAddress" value="localhost">
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> Set <add key="ClientSettingsProvider.ServiceUri" value="443"/>
+		-> Set <add key ="StateURL" value ="net.tcp://35.197.61.86:443/Service1"/>
+	[Cast-A-Net-WCF\AppCommon\Globals.cs]
+		-> Set TargetEngineAddress = "localhost" in case "ENGINE1"
+		-> Comment out the 'check the app's version' code block
+	[Cast-A-Net\AppCommon\Properties\Setting.Designer.cs]
+		-> Change "SALES" to "Engine1" as written below
+		[global::System.Configuration.DefaultSettingValueAttribute("Engine1")]
+	[Cast-A-Net-WCF\Campaign\app.config]
+		-> set <add key="TargetEngineAddress" value="localhost"/>
+		-> Set <add key="TargetEnginePort" value="456"/>
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.Designer.cs]
+		-> update connection string 
+			[global::System.Configuration.DefaultSettingValueAttribute
+			("Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;")]
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.settings]
+		-> Search for for DesignTimeValue Profile and Value Profile ============ Such names are not exist
+			-> update the connection strings in them	
+				(Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False)
+	[Cast-A-Net-WCF\CasReportsImpl\app.config]
+		-> Update Connection String
+			<add name="CasReportsImpl.Properties.Settings.CastanetConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;" providerName="System.Data.SqlClient" />
+	[Cast-A-Net-WCF\Data Access Layer\DAL.cs]
+		-> Update connection string
+			-> private static string _connectionString = "Server=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Max Pool Size=500;";
+	[Cast-A-Net-WCF\Data Access Layer\app.config]
+		-> Update connection string
+			<add name="engineConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\Direct\app.config]
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> C:\ConnectAndSell-10x\Cast-A-Net-WCF\Direct\app.config
+	[Cast-A-Net-WCF\HostWCFEngine\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <dns value="localhost" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		(dns value, add baseAddress can be found more than once, update all of them)
+		-> Update Connection String
+			-> <add name="CasReportsImpl.Properties.Settings.CastanetConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"
+				providerName="System.Data.SqlClient" />
+			-> <add name="engineConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\HostWCFEngine\ProjectInstaller.Designer.cs]
+		-> Set 
+			-> this.serviceInstaller1.ServiceName = "Cast-A-Net-WCF_10x";
+            -> this.serviceInstaller1.DisplayName = "EngineServiceWCF_10x";
+	[Cast-A-Net-WCF\testClient\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		-> Update connection string
+			<add name="engineConnectionString" 
+			connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+			
+[F. Services Installation]
+-> Make sure following projects have been built successfully
+	-> Cast-a-Net-WCF
+	-> ConnectAndSellState
+	-> CASLogConsumer
+-> Success built of project will lead to create exe file in Debug folder of the project
+-> Run the 64bit version of InstallUtil.exe to add it as a service
+-> Open Command Prompt as Admin
+	=> For EngineServiceWCF_10x, run commands:
+		-> cd C:\ConnectAndSell-10x\Cast-A-Net-WCF\HostWCFEngine\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe EngineServiceWCF.exe
+	=> For CASStateService, run commands:
+		-> cd C:\ConnectAndSell-10x\ConnectAndSellState\CASStateService\bin\x64\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASStateService.exe
+	=> For CASLogConsumer, run commands:
+		-> cd C:\ConnectAndSell-10x\CASLogConsumer\CASLogConsumer\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASLogConsumer.exe
+Note:  Incase Specified Path Not Found error, find and use service exe file path in your local
+
+[G. Hosting on IIS]
+-> Make Sure ConnectAndSell-WCF has been built successfully
+-> Search for IIS from Start Menu, open IIS Manager
+-> Expand system directory in Connections Menu (left hand side)
+-> Expand Sites
+-> Click on Default Web Site
+-> In Actions Menu (right hand side), Click on Basic Settings
+-> In appeared popup of Edit Site
+	-> Choose .NET version in Application Pool
+	-> In Physical path, point to relative path
+		-> C:\ConnectAndSell-10x\ConnectAndSell-WCF\ConnectAndSell.Web
+-> Click on OK
+-> Open project ConnectAndSell-WCF in Visual Studio
+-> In Solution Explorer, right click on ConnectAndSell.Web
+-> Click on properties
+-> Open Web tab in properties
+-> Select Local IIS in Servers
+-> Paste http://localhost/ConnectAndSell in Project Url
+	and click on Create Virtual Directory
+-> Again in Solution Explorer, right click on ConnectAndSell.Web
+-> Click on Set as Startup Project
+
+[H. Changes required for basic functionality - Queries to be run on DB]
+-> Error: Invalid column name 'IsPasswordReset'
+	-> ALTER TABLE cas_user
+		ADD IsPasswordReset bit  NOT NULL DEFAULT ((0));
+-> Error: Invalid column name 'OTP'
+	-> ALTER TABLE cas_user
+		ADD OTP nvarchar(7) NULL;
+-> For enabling/activate user on local
+	-> UPDATE t_User
+		SET loginemailid='akash.goswami@coditas.com'
+		WHERE LoginID='dkumar';
+	[Hint: Find UserId of user in t_User]
+	-> UPDATE cas_User
+		SET IsPasswordReset=1 
+		WHERE UserId=1749;
+-> Invalid column name 'SessionReportDL'.
+	-> INSERT INTO cas_LightningParameter VALUES('CompanyBasedEngineAssignment','True');
+		ALTER table t_Company ADD SessionReportDL VARCHAR(MAX);
+-> 	Invalid column name 'EngineIdentifier'
+	-> UPDATE t_Company SET EngineIdentifier = '';
+		ALTER TABLE t_company ADD EngineIdentifier VARCHAR(MAX);
+-> IsFollowupQuickListEnabled
+	-> Run Alter Script: Alter944
+
+-> Cannot Connect to Engine
+	-> OPEN Command Prompt as admin
+		-> Execute: netsh http add urlacl url=http://+:4444/ user=Everyone
+		(restart services, WINDOWS may need to be restarted manually)
+
+
+-> Invalid column name 'ContactTel3'
+	Invalid column name 'ContactExt3'
+	-> ALTER TABLE t_Call ADD ContactTel3 varchar(40);
+		ALTER TABLE t_Call ADD ContactExt3 varchar(40);
+		ALTER TABLE t_Call ADD IsDeletedInCRM bit;
+		ALTER TABLE t_lead ADD ContactTel3 varchar(40);
+		ALTER TABLE t_lead ADD ContactExt3 varchar(40);
+		ALTER TABLE t_lead ADD IsDeletedInCRM bit;
+-> Invalid column name 'UserId'
+	-> ALTER TABLE t_Call
+		ADD UserId int;
+-> Invalid column name 'CampaignUserId'
+	-> ALTER TABLE t_Call
+		ADD CampaignUserId	int;
+-> Invalid column name 'ClientId'
+	-> ALTER TABLE t_Call
+		ADD ClientId int;
+-> Invalid column name 'CallType'
+	-> ALTER TABLE t_Call
+		ADD CallType tinyint;
+-> Invalid column name 'SessionType'
+	-> ALTER TABLE t_Call
+		ADD SessionType	tinyint;
+-> Invalid column name 'DispositionId'
+	-> ALTER TABLE t_Call
+		ADD DispositionId int;
+-> Invalid column name 'IsReferral'
+	-> ALTER TABLE t_Call
+		ADD IsReferral tinyint;
+-> Invalid column name 'IsTransfer'
+	-> ALTER TABLE t_Call
+		ADD IsTransfer tinyint;
+-> Invalid column name 'AcknowledgedStatusFilterMissing'.
+	Invalid column name 'AcknowledgedBy'.
+	-> Run Alter Script: Alter1069
+-> Invalid column name 'SequenceId'.
+	Invalid column name 'OutreachListRefreshDate'.
+	-> Run Alter Script: Alter1078 
+-> Load CallLists
+	-> Run Queries
+		-> ALTER TABLE cas_Contact ADD IsConnected INT NOT NULL DEFAULT '0';
+		-> Alter table cas_contact add Phone3 varchar(50) null;
+	-> Run Alter Script
+		-> Alter997		
+		-> Alter1054		
+		-> Alter1058
+		-> Alter1195 - Exception: Invalid column name 'SFPbFlag'.		
+		-> Alter1080 and Alter814 - if you get error while loading list
+		
+All alter scripts are present at C:\ConnectAndSell-10x\ConnectAndSell-WCF\externals\Database
+Note: If you face any issues related to DB tables and Columns refer doc
+https://docs.google.com/spreadsheets/d/1PfAHmFcbx6Bj47MEiNkCc2qTcVIy2lPfiH8irSgd12c/edit#gid=0
+		
+[Create/Edit CallLists]
+-> Create a folder
+	-> GoogleCSVAuthFile in C:\
+	-> Copy csvauth.json in GoogleCSVAuthFile
+-> Run Queries
+	-> ALTER TABLE cas_Note ADD IsDualConsent BIT NOT NULL DEFAULT 0;
+	-> BEGIN
+			ALTER TABLE [dbo].[cas_Note] 
+			ADD [CallSentiment] NVARCHAR(1000)	
+		END
+-> For Calling
+	-> Set TargetEngineAddress = "localhost" inside Switch "ENGINE1" case 
+		in AppCommon\Global.cs in Cast-a-net Project
+	-> Run following query in the database: 
+		-> update t_AsteriskRef
+			set Configuration='Engine1', Address = '10.40.1.15' 
+			where ID=1
+	-> Build Cast-a-Net
+Note: Stop the service before building the respective project.
+[For getting Logs]
+-> For CAS Logs, Create a folder in C:, NewLogs
+-> StateLogs Folder is already present in C: for State Logs
+-> Cast-A-Net Engine logs can be seen in C:\Cast-A-Net\
+
+[I. Common Errors]
+-> Could not load assembly 'System.Web.Helpers'
+	-> Right click on ConnectAndSell.Web (In Solution Explorer)
+		-> Add > Reference > Browse
+			C:\ConnectAndSell\ConnectAndSell-WCF\ConnectAndSell.Web\bin\
+			(select: System.Web.Helpers.dll)
+			(Add reference)
+
+
+[List Create, Edit, Load and calling to leads from callLists should be functioning now in Local ConnectAndSell WebApp]Procedure for ConnectAndSell SADEV 10x Setup on local
+
+Steps
+A. Pre-requisites
+B. Database Restoration
+C. Application Installation
+D. Cloning the projects
+E. Building Projects
+F. Services Installation
+G. Hosting on IIS
+H. Changes required for basic functionality
+I. Common Errors
+
+Note: Run all mentioned applications in this procedure as Administrator to avoid unauthorized warning.
+
+[A. Pre-requisites]
+-> Download the following
+	-> 10X-Db 
+	-> Redis
+	-> ERLang/OTP
+	-> RabbitMQ
+	
+(url: https://drive.google.com/drive/folders/1-PjfZ8uKYw8JNndPxnZ_ozVhMHlF4bMP?usp=sharing)
+Note: May require access permission.
+
+[B. Database Restoration]
+-> Restore the database
+	-> Open Microsoft SQL Server Management Studio
+	-> Connect to Server with creds
+	-> Right click on the Databases (In Object Explorer)
+		-> Restore Database
+		-> Select Device option
+		-> Browse & point to 10X-Db bak file
+		-> After Selecting the backup file Click On OK
+		[May take few minutes for database to be restored]
+Note: Assuming Microsoft SQL Server Management Studio has been already installed.
+
+[C. Application Installation]
+-> Install Redis with default options
+-> Install ERLang/OTP with default options
+-> Install RabbitMQ with default options
+Note: Install ERLang/OTP before RabbitMQ to avoid Installation failure warning.
+
+[D. Cloning the projects]
+-> Go to https://github.com/ConnectAndSell/ with coditas mail id
+-> Create usename like first name + initial of last name - coditas
+	ex. first name - sachin
+		last name - sangekar
+		user name will be - sachins-coditas
+-> Search for the below projects one by one
+	open them & copy the clone url
+	-> ConnectAndSell-WCF
+		(branch: 10x_develop) 
+	-> Cast-a-Net-WCF
+		(branch: 10x_develop) 
+	-> ConnectAndSellState
+		(branch: 10x_develop) 
+	-> CASLogConsumer
+		(branch: master)
+	-> CASThreadsService (Optional)
+		(branch: master)
+	-> CASCommonUpdater(Optional)
+		(branch: master)
+		
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/ConnectAndSell-WCF.git
+		git clone --branch 10x_develop https://github.com/ConnectAndSell/Cast-a-Net-WCF.git
+		git clone --branch master_signalr https://github.com/ConnectAndSell/ConnectAndSellState.git
+		git clone --branch master https://github.com/ConnectAndSell/CASLogConsumer.git
+		git clone --branch master https://github.com/ConnectAndSell/CASThreadsService.git
+		git clone --branch master https://github.com/ConnectAndSell/CASCommonUpdater.git
+		
+-> In C drive, create a folder for ConnectAndSell-10x
+-> Inside ConnectAndSell-10x folder for each project
+	right click on blank area, click on git clone in appeared menu
+-> Paste git url in URL field for each project (one at a time)
+-> Before clicking on Ok
+	-> type respective branch name in Branch field
+-> Click on Ok
+Note: Github access may require for cloning.
+Note: Assuming Tortoise Git or any other git tool has been already installed for cloning.
+
+[E. Building Projects]
+-> Changes Required in ConnectAndSell-WCF
+	[ConnectAndSell.Web/Shared/CompanySettingMgr.cs: For ILOg Error]
+	-> Change Method parameters type ILog to ConnectAndSell.Common.ILOg
+	-> Replace the Web.config file in ConnectAndSell.Web with attached one
+		and update the connection string for your local system
+-> Changes Required in CASStateService
+	[CASStateService/App.confing]
+		-> Set dns value = "localhost"
+		-> Set base address = "net.tcp://localhost:444/"
+	[For signing error]
+		-> Right Click on StateManagement > Properties
+		-> Signing Tab : Sign the ClickOnce Mainfest [uncheck it]
+	-> Paste instances.json, state_instances.json
+		inside ConnectAndSellState\CASStateService
+-> Changes Required in Cast-A-Net-WCF
+	[Cast-A-Net-WCF\Agent\app.config]
+		-> Set <add key="TargetEngineAddress" value="localhost">
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> Set <add key="ClientSettingsProvider.ServiceUri" value="443"/>
+		-> Set <add key ="StateURL" value ="net.tcp://35.197.61.86:443/Service1"/>
+	[Cast-A-Net-WCF\AppCommon\Globals.cs]
+		-> Set TargetEngineAddress = "localhost" in case "ENGINE1"
+		-> Comment out the 'check the app's version' code block
+	[Cast-A-Net\AppCommon\Properties\Setting.Designer.cs]
+		-> Change "SALES" to "Engine1" as written below
+		[global::System.Configuration.DefaultSettingValueAttribute("Engine1")]
+	[Cast-A-Net-WCF\Campaign\app.config]
+		-> set <add key="TargetEngineAddress" value="localhost"/>
+		-> Set <add key="TargetEnginePort" value="456"/>
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.Designer.cs]
+		-> update connection string 
+			[global::System.Configuration.DefaultSettingValueAttribute
+			("Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;")]
+	[Cast-A-Net-WCF\CasReportsImpl\Properties\Settings.settings]
+		-> Search for for DesignTimeValue Profile and Value Profile ============ Such names are not exist
+			-> update the connection strings in them	
+				(Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False)
+	[Cast-A-Net-WCF\CasReportsImpl\app.config]
+		-> Update Connection String
+			<add name="CasReportsImpl.Properties.Settings.CastanetConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;" providerName="System.Data.SqlClient" />
+	[Cast-A-Net-WCF\Data Access Layer\DAL.cs]
+		-> Update connection string
+			-> private static string _connectionString = "Server=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Max Pool Size=500;";
+	[Cast-A-Net-WCF\Data Access Layer\app.config]
+		-> Update connection string
+			<add name="engineConnectionString" connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\Direct\app.config]
+		-> Set <add key="TargetEnginePort" value="456"/>
+		-> C:\ConnectAndSell-10x\Cast-A-Net-WCF\Direct\app.config
+	[Cast-A-Net-WCF\HostWCFEngine\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <dns value="localhost" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		(dns value, add baseAddress can be found more than once, update all of them)
+		-> Update Connection String
+			-> <add name="CasReportsImpl.Properties.Settings.CastanetConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"
+				providerName="System.Data.SqlClient" />
+			-> <add name="engineConnectionString"
+				connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+	[Cast-A-Net-WCF\HostWCFEngine\ProjectInstaller.Designer.cs]
+		-> Set 
+			-> this.serviceInstaller1.ServiceName = "Cast-A-Net-WCF_10x";
+            -> this.serviceInstaller1.DisplayName = "EngineServiceWCF_10x";
+	[Cast-A-Net-WCF\testClient\App.config]
+		-> Set <add key="TargetEnginePort" value="456" />
+		-> Set <add baseAddress="net.tcp://localhost:456/" />
+		-> Update connection string
+			<add name="engineConnectionString" 
+			connectionString="Data Source=AGOSWAMI-LAP-03;Initial Catalog=10X_Staging;User Id=sa;Password=akash;Integrated Security=False;"/>
+			
+[F. Services Installation]
+-> Make sure following projects have been built successfully
+	-> Cast-a-Net-WCF
+	-> ConnectAndSellState
+	-> CASLogConsumer
+-> Success built of project will lead to create exe file in Debug folder of the project
+-> Run the 64bit version of InstallUtil.exe to add it as a service
+-> Open Command Prompt as Admin
+	=> For EngineServiceWCF_10x, run commands:
+		-> cd C:\ConnectAndSell-10x\Cast-A-Net-WCF\HostWCFEngine\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe EngineServiceWCF.exe
+	=> For CASStateService, run commands:
+		-> cd C:\ConnectAndSell-10x\ConnectAndSellState\CASStateService\bin\x64\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASStateService.exe
+	=> For CASLogConsumer, run commands:
+		-> cd C:\ConnectAndSell-10x\CASLogConsumer\CASLogConsumer\bin\Debug\
+		-> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe CASLogConsumer.exe
+Note:  Incase Specified Path Not Found error, find and use service exe file path in your local
+
+[G. Hosting on IIS]
+-> Make Sure ConnectAndSell-WCF has been built successfully
+-> Search for IIS from Start Menu, open IIS Manager
+-> Expand system directory in Connections Menu (left hand side)
+-> Expand Sites
+-> Click on Default Web Site
+-> In Actions Menu (right hand side), Click on Basic Settings
+-> In appeared popup of Edit Site
+	-> Choose .NET version in Application Pool
+	-> In Physical path, point to relative path
+		-> C:\ConnectAndSell-10x\ConnectAndSell-WCF\ConnectAndSell.Web
+-> Click on OK
+-> Open project ConnectAndSell-WCF in Visual Studio
+-> In Solution Explorer, right click on ConnectAndSell.Web
+-> Click on properties
+-> Open Web tab in properties
+-> Select Local IIS in Servers
+-> Paste http://localhost/ConnectAndSell in Project Url
+	and click on Create Virtual Directory
+-> Again in Solution Explorer, right click on ConnectAndSell.Web
+-> Click on Set as Startup Project
+
+[H. Changes required for basic functionality - Queries to be run on DB]
+-> Error: Invalid column name 'IsPasswordReset'
+	-> ALTER TABLE cas_user
+		ADD IsPasswordReset bit  NOT NULL DEFAULT ((0));
+-> Error: Invalid column name 'OTP'
+	-> ALTER TABLE cas_user
+		ADD OTP nvarchar(7) NULL;
+-> For enabling/activate user on local
+	-> UPDATE t_User
+		SET loginemailid='akash.goswami@coditas.com'
+		WHERE LoginID='dkumar';
+	[Hint: Find UserId of user in t_User]
+	-> UPDATE cas_User
+		SET IsPasswordReset=1 
+		WHERE UserId=1749;
+-> Invalid column name 'SessionReportDL'.
+	-> INSERT INTO cas_LightningParameter VALUES('CompanyBasedEngineAssignment','True');
+		ALTER table t_Company ADD SessionReportDL VARCHAR(MAX);
+-> 	Invalid column name 'EngineIdentifier'
+	-> UPDATE t_Company SET EngineIdentifier = '';
+		ALTER TABLE t_company ADD EngineIdentifier VARCHAR(MAX);
+-> IsFollowupQuickListEnabled
+	-> Run Alter Script: Alter944
+
+-> Cannot Connect to Engine
+	-> OPEN Command Prompt as admin
+		-> Execute: netsh http add urlacl url=http://+:4444/ user=Everyone
+		(restart services, WINDOWS may need to be restarted manually)
+
+
+-> Invalid column name 'ContactTel3'
+	Invalid column name 'ContactExt3'
+	-> ALTER TABLE t_Call ADD ContactTel3 varchar(40);
+		ALTER TABLE t_Call ADD ContactExt3 varchar(40);
+		ALTER TABLE t_Call ADD IsDeletedInCRM bit;
+		ALTER TABLE t_lead ADD ContactTel3 varchar(40);
+		ALTER TABLE t_lead ADD ContactExt3 varchar(40);
+		ALTER TABLE t_lead ADD IsDeletedInCRM bit;
+-> Invalid column name 'UserId'
+	-> ALTER TABLE t_Call
+		ADD UserId int;
+-> Invalid column name 'CampaignUserId'
+	-> ALTER TABLE t_Call
+		ADD CampaignUserId	int;
+-> Invalid column name 'ClientId'
+	-> ALTER TABLE t_Call
+		ADD ClientId int;
+-> Invalid column name 'CallType'
+	-> ALTER TABLE t_Call
+		ADD CallType tinyint;
+-> Invalid column name 'SessionType'
+	-> ALTER TABLE t_Call
+		ADD SessionType	tinyint;
+-> Invalid column name 'DispositionId'
+	-> ALTER TABLE t_Call
+		ADD DispositionId int;
+-> Invalid column name 'IsReferral'
+	-> ALTER TABLE t_Call
+		ADD IsReferral tinyint;
+-> Invalid column name 'IsTransfer'
+	-> ALTER TABLE t_Call
+		ADD IsTransfer tinyint;
+-> Invalid column name 'AcknowledgedStatusFilterMissing'.
+	Invalid column name 'AcknowledgedBy'.
+	-> Run Alter Script: Alter1069
+-> Invalid column name 'SequenceId'.
+	Invalid column name 'OutreachListRefreshDate'.
+	-> Run Alter Script: Alter1078 
+-> Load CallLists
+	-> Run Queries
+		-> ALTER TABLE cas_Contact ADD IsConnected INT NOT NULL DEFAULT '0';
+		-> Alter table cas_contact add Phone3 varchar(50) null;
+	-> Run Alter Script
+		-> Alter997		
+		-> Alter1054		
+		-> Alter1058
+		-> Alter1195 - Exception: Invalid column name 'SFPbFlag'.		
+		-> Alter1080 and Alter814 - if you get error while loading list
+		
+All alter scripts are present at C:\ConnectAndSell-10x\ConnectAndSell-WCF\externals\Database
+Note: If you face any issues related to DB tables and Columns refer doc
+https://docs.google.com/spreadsheets/d/1PfAHmFcbx6Bj47MEiNkCc2qTcVIy2lPfiH8irSgd12c/edit#gid=0
+		
+[Create/Edit CallLists]
+-> Create a folder
+	-> GoogleCSVAuthFile in C:\
+	-> Copy csvauth.json in GoogleCSVAuthFile
+-> Run Queries
+	-> ALTER TABLE cas_Note ADD IsDualConsent BIT NOT NULL DEFAULT 0;
+	-> BEGIN
+			ALTER TABLE [dbo].[cas_Note] 
+			ADD [CallSentiment] NVARCHAR(1000)	
+		END
+-> For Calling
+	-> Set TargetEngineAddress = "localhost" inside Switch "ENGINE1" case 
+		in AppCommon\Global.cs in Cast-a-net Project
+	-> Run following query in the database: 
+		-> update t_AsteriskRef
+			set Configuration='Engine1', Address = '10.40.1.15' 
+			where ID=1
+	-> Build Cast-a-Net
+Note: Stop the service before building the respective project.
+[For getting Logs]
+-> For CAS Logs, Create a folder in C:, NewLogs
+-> StateLogs Folder is already present in C: for State Logs
+-> Cast-A-Net Engine logs can be seen in C:\Cast-A-Net\
+
+[I. Common Errors]
+-> Could not load assembly 'System.Web.Helpers'
+	-> Right click on ConnectAndSell.Web (In Solution Explorer)
+		-> Add > Reference > Browse
+			C:\ConnectAndSell\ConnectAndSell-WCF\ConnectAndSell.Web\bin\
+			(select: System.Web.Helpers.dll)
+			(Add reference)
+
+
+[List Create, Edit, Load and calling to leads from callLists should be functioning now in Local ConnectAndSell WebApp]

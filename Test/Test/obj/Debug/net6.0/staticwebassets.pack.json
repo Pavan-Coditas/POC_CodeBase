@@ -1,0 +1,1225 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployeeApiConsumer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\EmployeeApiConsumer.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\.DS_Store",
+      "PackagePath": "staticwebassets\\css1\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\.DS_Store",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\_media.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\_media.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\mixins\\.DS_Store",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\mixins\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\mixins\\_border-radius.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\mixins\\_border-radius.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\mixins\\_screen-reader.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\mixins\\_screen-reader.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\mixins\\_visibility.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\mixins\\_visibility.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\bootstrap\\utilities\\_stretched-link.css",
+      "PackagePath": "staticwebassets\\css1\\bootstrap\\utilities\\_stretched-link.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css1\\style.css",
+      "PackagePath": "staticwebassets\\css1\\style.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\.DS_Store",
+      "PackagePath": "staticwebassets\\css\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\ChatPopUp.css",
+      "PackagePath": "staticwebassets\\css\\ChatPopUp.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\Chatbox.css",
+      "PackagePath": "staticwebassets\\css\\Chatbox.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\Test.css",
+      "PackagePath": "staticwebassets\\css\\Test.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\bootstrap\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\bootstrap\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\css\\userstatus.css",
+      "PackagePath": "staticwebassets\\css\\userstatus.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\fonts1\\.DS_Store",
+      "PackagePath": "staticwebassets\\fonts1\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\.DS_Store",
+      "PackagePath": "staticwebassets\\images\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\bg_1.jpg",
+      "PackagePath": "staticwebassets\\images\\bg_1.jpg"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\chatbutton.png",
+      "PackagePath": "staticwebassets\\images\\chatbutton.png"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\closebutton.png",
+      "PackagePath": "staticwebassets\\images\\closebutton.png"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\hello.gif",
+      "PackagePath": "staticwebassets\\images\\hello.gif"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\settings.gif",
+      "PackagePath": "staticwebassets\\images\\settings.gif"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\images\\undraw_remotely_2j6y.svg",
+      "PackagePath": "staticwebassets\\images\\undraw_remotely_2j6y.svg"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js1\\.DS_Store",
+      "PackagePath": "staticwebassets\\js1\\.DS_Store"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js1\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js1\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js1\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js1\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js1\\main.js",
+      "PackagePath": "staticwebassets\\js1\\main.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js1\\popper.js",
+      "PackagePath": "staticwebassets\\js1\\popper.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\Toastr\\toastr.js",
+      "PackagePath": "staticwebassets\\js\\Toastr\\toastr.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\jquery-3.3.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.3.1.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\README.md",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\README.md"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\browser\\signalr.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\browser\\signalr.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\browser\\signalr.min.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\browser\\signalr.min.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\AbortController.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\AbortController.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\AbortController.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\AbortController.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\AccessTokenHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\DefaultHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\DefaultReconnectPolicy.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Errors.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Errors.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Errors.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Errors.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\FetchHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HandshakeProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HeaderNames.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HttpConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HubConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HubConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HubConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HubConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\HubConnectionBuilder.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IHttpConnectionOptions.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ILogger.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ILogger.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ILogger.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ILogger.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\IRetryPolicy.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ITransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ITransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ITransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ITransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\JsonHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Loggers.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Loggers.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Loggers.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Loggers.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\LongPollingTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Polyfills.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Polyfills.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Polyfills.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Polyfills.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\ServerSentEventsTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Stream.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Stream.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Stream.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Stream.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Subject.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Subject.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Subject.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Subject.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\TextMessageFormat.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Utils.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Utils.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\Utils.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\Utils.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\WebSocketTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\XhrHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\browser-index.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\browser-index.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\browser-index.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\browser-index.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\index.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\index.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\cjs\\index.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\cjs\\index.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AbortController.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AbortController.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AbortController.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AbortController.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AbortController.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AbortController.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\AccessTokenHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\DefaultReconnectPolicy.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Errors.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Errors.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Errors.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Errors.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Errors.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Errors.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\FetchHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HandshakeProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HeaderNames.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HttpConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\HubConnectionBuilder.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IConnection.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IConnection.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IConnection.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IConnection.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IConnection.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IConnection.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHttpConnectionOptions.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ILogger.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ILogger.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ILogger.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ILogger.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ILogger.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ILogger.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\IRetryPolicy.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ITransport.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ITransport.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ITransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ITransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ITransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ITransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\JsonHubProtocol.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Loggers.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Loggers.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Loggers.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Loggers.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Loggers.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Loggers.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\LongPollingTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Polyfills.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\ServerSentEventsTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Stream.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Stream.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Stream.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Stream.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Stream.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Stream.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Subject.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Subject.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Subject.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Subject.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Subject.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Subject.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\TextMessageFormat.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Utils.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Utils.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Utils.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Utils.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\Utils.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\Utils.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\WebSocketTransport.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\XhrHttpClient.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\browser-index.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\browser-index.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\browser-index.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\browser-index.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\browser-index.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\browser-index.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\index.d.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\index.d.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\index.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\index.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\esm\\index.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\esm\\index.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\webworker\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\webworker\\signalr.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\webworker\\signalr.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\webworker\\signalr.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\webworker\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\webworker\\signalr.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\dist\\webworker\\signalr.min.js.map",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\dist\\webworker\\signalr.min.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\package.json",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\package.json"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\AbortController.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\AbortController.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\AccessTokenHttpClient.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\AccessTokenHttpClient.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\DefaultHttpClient.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\DefaultHttpClient.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\DefaultReconnectPolicy.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\DefaultReconnectPolicy.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Errors.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Errors.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\FetchHttpClient.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\FetchHttpClient.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HandshakeProtocol.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HandshakeProtocol.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HeaderNames.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HeaderNames.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HttpClient.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HttpClient.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HttpConnection.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HttpConnection.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HubConnection.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HubConnection.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\HubConnectionBuilder.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\HubConnectionBuilder.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\IConnection.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\IConnection.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\IHttpConnectionOptions.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\IHttpConnectionOptions.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\IHubProtocol.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\IHubProtocol.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\ILogger.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\ILogger.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\IRetryPolicy.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\IRetryPolicy.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\ITransport.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\ITransport.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\JsonHubProtocol.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\JsonHubProtocol.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Loggers.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Loggers.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\LongPollingTransport.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\LongPollingTransport.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Polyfills.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Polyfills.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\ServerSentEventsTransport.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\ServerSentEventsTransport.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Stream.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Stream.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Subject.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Subject.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\TextMessageFormat.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\TextMessageFormat.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\Utils.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\Utils.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\WebSocketTransport.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\WebSocketTransport.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\XhrHttpClient.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\XhrHttpClient.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\browser-index.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\browser-index.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\index.ts",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\index.ts"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\microsoft\\signalr\\src\\third-party-notices.txt",
+      "PackagePath": "staticwebassets\\js\\microsoft\\signalr\\src\\third-party-notices.txt"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\popper.js",
+      "PackagePath": "staticwebassets\\js\\popper.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\signalrScript.js",
+      "PackagePath": "staticwebassets\\js\\signalrScript.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\EmployeePOC\\Test\\Test\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.EmployeeApiConsumer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.EmployeeApiConsumer.props",
+      "PackagePath": "build\\EmployeeApiConsumer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.EmployeeApiConsumer.props",
+      "PackagePath": "buildMultiTargeting\\EmployeeApiConsumer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.EmployeeApiConsumer.props",
+      "PackagePath": "buildTransitive\\EmployeeApiConsumer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
